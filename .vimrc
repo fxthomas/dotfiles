@@ -150,11 +150,11 @@ map <Leader>c :TagbarToggle<CR>
 " Unite
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-noremap <leader>ut :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
-noremap <leader>uf :Unite -no-split -buffer-name=files   -start-insert file<cr>
-noremap <leader>ur :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-noremap <leader>uy :Unite -no-split -buffer-name=yank    history/yank<cr>
-noremap <leader>ue :Unite -no-split -buffer-name=buffer  buffer<cr>
+noremap <leader>f :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
+noremap <leader>d :Unite -no-split -buffer-name=files   -start-insert file<cr>
+noremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+noremap <leader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
+noremap <leader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
 
 " Syntastic
 let g:syntastic_c_remove_include_errors = 1
