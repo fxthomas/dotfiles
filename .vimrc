@@ -158,6 +158,9 @@ noremap <leader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
 
 " Syntastic
 let g:syntastic_c_remove_include_errors = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_auto_loc_list = 1
 
 """""""""""""""""""""
 " Keyboard bindings "
