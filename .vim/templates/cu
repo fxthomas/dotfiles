@@ -1,0 +1,83 @@
+/**
+ * Base CUDA Source code (%PLACE_FILENAME%)
+ * Created: %PLACE_CREATETIME%
+ *
+ * This C for CUDA source code was developped by François-Xavier Thomas.
+ * You are free to copy, adapt or modify it.
+ * If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ * @version 1.0
+ */
+
+#include <stdio.h>
+#include <cuda.h>
+#include <cuda_runtime.h>
+
+/**
+ * Checks for CUDA Error. If there's any, print on stderr.
+ * 
+ * @param msg      Text to write before error message
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+__host__ void cudaCheckError(const char *msg) {
+	cudaError_t err = cudaGetLastError();
+	if(cudaSuccess != err) {
+		fprintf(stderr, "GPU: %s: %s\n", msg, cudaGetErrorString(err));
+		exit(EXIT_FAILURE);
+	}
+}
+
+/**
+ * Prints GPU memory info
+ * 
+ * @return Used memory, in kBytes
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+__host__ long cudaPrintMemory () {
+	size_t used, free, total;
+	cudaMemGetInfo (&free, &total);
+	used = (total - free)/1024;
+	free /= 1024;
+	total /= 1024;
+
+	fprintf (stderr, "GPU: Memory: %ldK used, %ldK free / %ldK total\n", used, free, total);
+
+	return used;
+}
+
+/**
+ * CUDA Kernel
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+__global__ void cudaKernel () {
+
+}
+
+/**
+ * Main function
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+__host__ int runMain (int argc, char** argv) {
+	%PLACE_CURSOR%
+
+	return 0;
+}
+
+/**
+ * True main function, provides some initialization and de-initialization.
+ *
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+__host__ int main (int argc, char** argv) {
+	long __mem_start = cudaPrintMemory();
+
+	/* Your code is here */
+	int ret = runMain (argc, argv);
+
+	long __mem_end = cudaPrintMemory();
+	fprintf (stderr, "GPU: Used memory: %ldK\n", __mem_start-__mem_end);
+	return ret;
+}

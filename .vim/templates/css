@@ -1,0 +1,17 @@
+/**
+ * Base CSS File (%PLACE_FILENAME%)
+ * Created: %PLACE_CREATETIME%
+ *
+ * This CSS file is part of a website developped by François-Xavier Thomas.
+ * You are free to copy, adapt or modify it.
+ * If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ * @version 1.0
+ */
+
+* {
+	font-family: "Arial", "Helvetica", sans-serif;
+}
+
+%PLACE_CURSOR%

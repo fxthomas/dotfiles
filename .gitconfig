@@ -1,0 +1,16 @@
+[user]
+	name = François-Xavier Thomas
+	email = fx.thomas@gmail.com
+[diff]
+  tool = vimdiff
+	algorithm = patience
+[pager]
+  diff =
+[color]
+  ui = auto
+[core]
+	excludesfile = ~/.gitignore_global
+[alias]
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"

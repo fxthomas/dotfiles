@@ -1,0 +1,23 @@
+/**
+ * %PLACE_FILENOEXT% Java Source code (%PLACE_FILENAME%)
+ * Created: %PLACE_CREATETIME%
+ *
+ * This Java source code was developped by François-Xavier Thomas.
+ * You are free to copy, adapt or modify it.
+ * If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ * @version 1.0
+ */
+
+/**
+ * %PLACE_FILENOEXT% Class
+ * This class is useful for something : say it here!
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+public class %PLACE_FILENOEXT% {
+	public static void main(String[] args) {
+		%PLACE_CURSOR%
+	}
+}

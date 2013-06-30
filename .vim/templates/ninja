@@ -1,0 +1,35 @@
+#!/usr/bin/ninja -f
+
+# Ninja Build Script (%PLACE_FILENAME%)
+# Created: %PLACE_CREATETIME%
+#
+# This Ninja build script was developped by François-Xavier Thomas.
+# You are free to copy, adapt or modify it.
+# If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
+# 
+# (ɔ) François-Xavier Thomas <fx.thomas@gmail.com>
+
+# Compiler Flags
+cflags = -Wall
+cppflags = -Wall
+cudaflags = --compiler-options -fpermissive --compiler-options -ggdb -G -g
+
+# Linker Flags
+ldflags =
+libs = 
+
+# Common Rules
+rule cc
+  command = gcc $cflags -c $in -o $out
+
+rule cpp
+  command = g++ $cflags -c $in -o $out
+
+rule cuda
+  command = nvcc $cudaflags -c $in -o $out
+
+rule link
+  command = g++ $ldflags $libs -o $out $in
+
+%PLACE_CURSOR%
+

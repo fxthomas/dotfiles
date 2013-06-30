@@ -1,0 +1,37 @@
+/**
+ * %PLACE_FILENOEXT% C++ Header (%PLACE_FILENAME%)
+ * Created: %PLACE_CREATETIME%
+ *
+ * This C++ Header was developped by François-Xavier Thomas.
+ * You are free to copy, adapt or modify it.
+ * If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
+ * 
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ * @version 1.0
+ */
+
+/**
+ * %PLACE_FILENOEXT% Class
+ * This class does something you ought to say here!
+ *
+ * @author François-Xavier Thomas <fx.thomas@gmail.com>
+ */
+class %PLACE_FILENOEXT% {
+	public:
+		/**
+		 * %PLACE_FILENOEXT% Class Constructor
+		 * 
+		 * @author François-Xavier Thomas
+		 */
+		%PLACE_FILENOEXT%();
+
+		/**
+		 * %PLACE_FILENOEXT% Class Destructor
+		 *
+		 * @author François-Xavier Thomas
+		 */
+		~%PLACE_FILENOEXT%();
+		%PLACE_CURSOR%
+	protected:
+
+};

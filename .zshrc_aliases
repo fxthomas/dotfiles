@@ -1,0 +1,29 @@
+#/bin/zsh
+
+# Aliases
+alias ocaml='rlwrap ocaml'
+alias v8='rlwrap v8'
+alias d8='rlwrap d8'
+alias coffee='rlwrap coffee'
+alias mkdir='mkdir -pv'
+alias wget='wget -c'
+alias rsync='rsync --progress --partial'
+alias df='df -h'
+alias du='du -h'
+alias dus='du -hd 1 | gsort -h'
+alias sha1='openssl sha1'
+alias md5='openssl md5'
+alias tmux='tmux -2'
+alias pacman='pacman --color auto'
+
+PLATFORM=`uname`
+if [[ "$PLATFORM" == 'Linux' ]]; then
+  alias ls='ls --color=auto -h'
+elif [[ "$PLATFORM" == 'FreeBSD' ]]; then
+  alias ls='ls -Gh'
+elif [[ "$PLATFORM" == 'Darwin' ]]; then
+  alias ls='ls -Gh'
+fi
+
+alias lrt='ls -lrt'
+alias la='ls -la'
