@@ -10,8 +10,8 @@ git clone https://github.com/fxthomas/dotfiles.git ~/.dotfiles
 # Initialize the submodules
 cd ~/.dotfiles; git submodule init; git submodule update
 
-# Link the dotfiles to your home directory
-ln -s ~/.dotfiles/.* ~/
+# Link the dotfiles to your home directory, but remove `.git` and `.gitignore`
+ln -s ~/.dotfiles/.* ~/; rm ~/{.git,.gitignore}
 
 # Install Vim bundles
 vim -E -c BundleInstall -c 'qa!'
