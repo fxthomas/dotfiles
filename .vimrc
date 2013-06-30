@@ -7,14 +7,15 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim'}
-Bundle 'Shougo/unite.vim'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'klen/python-mode'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'ervandew/supertab'
+Bundle "gmarik/vundle"
+Bundle "tpope/vim-markdown"
+Bundle "maciakl/vim-neatstatus"
+Bundle "Shougo/unite.vim"
+Bundle "Shougo/vimproc.vim"
+Bundle "klen/python-mode"
+Bundle "scrooloose/nerdcommenter"
+Bundle "scrooloose/syntastic"
+Bundle "ervandew/supertab"
 
 """""""""""""""""""""""""
 " Common editor options "
