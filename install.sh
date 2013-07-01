@@ -11,11 +11,15 @@
 
 function linkconf {
   echo -n "  $2/$1"
-  ln -s "$1" "$2/$1" >/dev/null 2>&1
-  if [ $? -eq 0 ]; then
-    echo " [OK]"
+  if [ -e "$2/$1" ]; then
+    echo " [Exists]"
   else
-    echo " [Fail]"
+    ln -s "$1" "$2/$1" >/dev/null 2>&1
+    if [ $? -eq 0 ]; then
+      echo " [OK]"
+    else
+      echo " [Fail]"
+    fi
   fi
 }
 
