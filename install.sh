@@ -9,12 +9,16 @@
 # You are free to copy, adapt or modify it.
 # If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
 
+BASEDIR=$(pwd)
+
 function linkconf {
-  echo -n "  $2/$1"
-  if [ -e "$2/$1" ]; then
+  IN="$BASEDIR/$1"
+  OUT="$2/$1"
+  echo -n "  $IN -> $OUT"
+  if [ -e "$OUT" ]; then
     echo " [Exists]"
   else
-    ln -s "$1" "$2/$1" >/dev/null 2>&1
+    ln -s "$IN" "$OUT" >/dev/null 2>&1
     if [ $? -eq 0 ]; then
       echo " [OK]"
     else
