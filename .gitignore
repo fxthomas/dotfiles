@@ -3,6 +3,5 @@
 .bip
 .lftp/*history*
 .lftp/transfer_log
-.oh-my-zsh
 .vim/backup
 .vim/bundle
