@@ -9,19 +9,53 @@
 # You are free to copy, adapt or modify it.
 # If you do so, however, leave my name somewhere in the credits, I'd appreciate it ;)
 
-ln -s .bash_profile ~/
-ln -s .bashrc ~/
-ln -s .gdbinit ~/
-ln -s .git ~/
-ln -s .gitconfig ~/
-ln -s .gitignore ~/
-ln -s .gitignore_global ~/
-ln -s .gitmodules ~/
-ln -s .install.sh.swp ~/
-ln -s .lftp ~/
-ln -s .tmux.conf ~/
-ln -s .vim ~/
-ln -s .vimrc ~/
-ln -s .zshrc ~/
-ln -s .zshrc_aliases ~/
-ln -s fx.zsh-theme ~/.oh-my-zsh/themes/
+function linkconf {
+  echo -n "  $2/$1"
+  ln -s "$1" "$2/$1" >/dev/null 2>&1
+  if [ $? -eq 0 ]; then
+    echo " [OK]"
+  else
+    echo " [Fail]"
+  fi
+}
+
+# Update submodules
+echo "Updating submodules..."
+git submodule init
+git submodule update
+
+# Link configuration
+echo "Linking configuration..."
+linkconf .oh-my-zsh ~
+linkconf .bash_profile ~
+linkconf .bashrc ~
+linkconf .gdbinit ~
+linkconf .gitconfig ~
+linkconf .gitignore_global ~
+linkconf .lftp ~
+linkconf .tmux.conf ~
+linkconf .vim ~
+linkconf .vimrc ~
+linkconf .zshrc ~
+linkconf .zshrc_aliases ~
+linkconf fx.zsh-theme ~/.oh-my-zsh/themes
+
+# Install Vim bundles
+echo "Installing Vim bundles..."
+vim -E -c BundleInstall -c 'qa!'
+
+# Make Vimproc
+echo "Compiling Vimproc..."
+UNAME=`uname`
+if [[ "$UNAME" == "Linux" ]]; then
+  cd .vim/bundle/vimproc.vim && make -f make_unix.mak
+elif [[ "$UNAME" == "FreeBSD" ]]; then
+  cd .vim/bundle/vimproc.vim && make -f make_unix.mak
+elif [[ "$UNAME" == "Darwin" ]]; then
+  cd .vim/bundle/vimproc.vim && make -f make_mac.mak
+else
+  echo "Unable to compile Vimproc for your architecture... [$UNAME]"
+fi
+
+# Finish!
+echo "All done!"
