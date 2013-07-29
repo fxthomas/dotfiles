@@ -1,15 +1,15 @@
 [user]
-	name = François-Xavier Thomas
-	email = fx.thomas@gmail.com
+  name = François-Xavier Thomas
+  email = fx.thomas@gmail.com
 [diff]
   tool = vimdiff
-	algorithm = patience
+  algorithm = patience
 [pager]
   diff =
 [color]
   ui = auto
 [core]
-	excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore_global
 [alias]
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
