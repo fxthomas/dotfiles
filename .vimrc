@@ -9,7 +9,8 @@ call vundle#rc()
 
 Bundle "gmarik/vundle"
 Bundle "tpope/vim-markdown"
-Bundle "maciakl/vim-neatstatus"
+Bundle "bling/vim-airline"
+Bundle "tpope/vim-fugitive"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc.vim"
 Bundle "klen/python-mode"
