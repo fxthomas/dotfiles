@@ -16,6 +16,7 @@ Bundle "Shougo/vimproc.vim"
 Bundle "klen/python-mode"
 Bundle "scrooloose/nerdcommenter"
 Bundle "scrooloose/syntastic"
+Bundle "mattn/zencoding-vim"
 Bundle "ervandew/supertab"
 
 """""""""""""""""""""""""
