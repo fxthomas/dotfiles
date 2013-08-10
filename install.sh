@@ -50,7 +50,7 @@ linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 
 # Install Vim bundles
 echo "Installing Vim bundles..."
-vim -E -c BundleInstall -c 'qa!'
+vim +BundleInstall +qall
 
 # Make Vimproc
 echo "Compiling Vimproc..."
