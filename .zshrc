@@ -59,4 +59,8 @@ if [[ -e $HOME/.zshrc_after ]]; then source $HOME/.zshrc_after; fi
 # Setup aliases
 if [[ -e $HOME/.zshrc_aliases ]]; then source $HOME/.zshrc_aliases; fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin
+
+# Disable Virtualenv prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
