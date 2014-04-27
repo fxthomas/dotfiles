@@ -7,6 +7,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle "Valloric/YouCompleteMe"
 Bundle "vimoutliner/vimoutliner"
 Bundle "nelstrom/vim-markdown-folding"
 Bundle "gmarik/vundle"
