@@ -11,22 +11,33 @@ Bundle "Valloric/YouCompleteMe"
 Bundle "vimoutliner/vimoutliner"
 Bundle "nelstrom/vim-markdown-folding"
 Bundle "gmarik/vundle"
+
+Bundle "vimoutliner/vimoutliner"
+Bundle "nelstrom/vim-markdown-folding"
 Bundle "tpope/vim-markdown"
-Bundle "bling/vim-airline"
 Bundle "tpope/vim-fugitive"
+Bundle "bling/vim-airline"
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc.vim"
-Bundle "klen/python-mode"
+
 Bundle "scrooloose/nerdcommenter"
 Bundle "scrooloose/syntastic"
 Bundle "mattn/zencoding-vim"
 Bundle "ervandew/supertab"
+Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-rails"
+Bundle "b4winckler/vim-angry"
+Bundle "vim-scripts/AnsiEsc.vim.git"
+Bundle "klen/python-mode"
+Bundle "Valloric/YouCompleteMe"
 
 """""""""""""""""""""""""
 " Common editor options "
 """""""""""""""""""""""""
 
 " Common options
+set re=1
+set ttyfast
 set autoread                      " Auto reload modified files
 set backspace=indent,eol,start    " backspace erases in insert mode
 set backup
