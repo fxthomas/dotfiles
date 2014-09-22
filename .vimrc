@@ -338,3 +338,7 @@ au bufRead,bufNewFile *.json map <C-j> :%w !jsonv<CR>
 
 "Lua
 au bufRead,bufNewFile *.lua map <C-j> :%w !luav<CR>
+
+"Log files with color
+au bufRead *.log AnsiEsc
+
