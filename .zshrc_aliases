@@ -27,3 +27,6 @@ fi
 
 alias lrt='ls -lrt'
 alias la='ls -la'
+alias open='xdg-open'
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
