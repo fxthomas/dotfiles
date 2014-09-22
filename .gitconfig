@@ -11,6 +11,10 @@
 [core]
   excludesfile = ~/.gitignore_global
 [alias]
+  st = status
+  ci = commit
+  co = checkout
+  rb = rebase
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
   assumed = "!git ls-files -v | grep ^h | cut -c 3-"
