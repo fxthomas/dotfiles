@@ -107,6 +107,9 @@ map z7 :set foldlevel=7<CR>
 map z8 :set foldlevel=8<CR>
 map z9 :set foldlevel=9<CR>
 
+" Ctrl-A increments on a whole line
+vmap <C-a> :s/\d\+/\=(submatch(0)+1)/g<CR>gv
+
 " Auto-reload .vimrc when saved
 au! bufWritePost .vimrc source %
 
