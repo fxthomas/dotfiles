@@ -50,7 +50,7 @@ linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 
 # Install Vim bundles
 echo "Installing Vim bundles..."
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
 # Make Vimproc
 echo "Compiling Vimproc..."
@@ -63,6 +63,12 @@ elif [[ "$UNAME" == "Darwin" ]]; then
   cd .vim/bundle/vimproc.vim && make -f make_mac.mak
 else
   echo "Unable to compile Vimproc for your architecture... [$UNAME]"
+fi
+
+# Make YCM
+if [[ -f ~/.vim/bundle/YouCompleteMe/install.sh ]]; then
+  echo "Compiling YCM..."
+  cd ~/.vim/bundle/YouCompleteMe && ./install.sh
 fi
 
 # Finish!

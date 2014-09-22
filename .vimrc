@@ -4,32 +4,32 @@
 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+
+Bundle "gmarik/Vundle.vim"
 
 Bundle "Valloric/YouCompleteMe"
-Bundle "vimoutliner/vimoutliner"
-Bundle "nelstrom/vim-markdown-folding"
-Bundle "gmarik/vundle"
+Bundle "scrooloose/syntastic"
+Bundle "klen/python-mode"
 
 Bundle "vimoutliner/vimoutliner"
 Bundle "nelstrom/vim-markdown-folding"
+
 Bundle "tpope/vim-markdown"
 Bundle "tpope/vim-fugitive"
+Bundle "tpope/vim-rails"
 Bundle "bling/vim-airline"
+Bundle "b4winckler/vim-angry"
+
 Bundle "Shougo/unite.vim"
 Bundle "Shougo/vimproc.vim"
 
 Bundle "scrooloose/nerdcommenter"
-Bundle "scrooloose/syntastic"
 Bundle "mattn/zencoding-vim"
-Bundle "ervandew/supertab"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-rails"
-Bundle "b4winckler/vim-angry"
 Bundle "vim-scripts/AnsiEsc.vim.git"
-Bundle "klen/python-mode"
-Bundle "Valloric/YouCompleteMe"
+
+call vundle#end()
 
 """""""""""""""""""""""""
 " Common editor options "
