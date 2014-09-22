@@ -194,8 +194,10 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_python_checkers=['flake8']
 
-" Python Mode
+" Disable expensive Python mode scripts : most of the useful things are handled
+" by YCM and Syntastic.
 let g:pymode_lint = 0
+let g:pymode_rope = 0
 
 """""""""""""""""""""
 " Keyboard bindings "
