@@ -208,11 +208,11 @@ vmap <C-c> :w !pbcopy<CR>
 imap <C-v> <Esc>:r !pbpaste<CR>i
 
 " Wrapped line navigation
-noremap <C-J> gj                                   
+noremap <C-J> gj
 noremap <C-K> gk
 
 " Run "make" with Enter
-" noremap <C-M> :!make<CR> 
+" noremap <C-M> :!make<CR>
 
 " New tab with ,t and Ctrl-T
 map <Leader>t :tabnew<CR>
