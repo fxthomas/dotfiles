@@ -95,6 +95,18 @@ set suffixes+=.in,.a
 " Leader key is ','
 let mapleader=","
 
+" Add easier foldlevel aliases
+map z0 :set foldlevel=0<CR>
+map z1 :set foldlevel=1<CR>
+map z2 :set foldlevel=2<CR>
+map z3 :set foldlevel=3<CR>
+map z4 :set foldlevel=4<CR>
+map z5 :set foldlevel=5<CR>
+map z6 :set foldlevel=6<CR>
+map z7 :set foldlevel=7<CR>
+map z8 :set foldlevel=8<CR>
+map z9 :set foldlevel=9<CR>
+
 " Auto-reload .vimrc when saved
 au! bufWritePost .vimrc source %
 
