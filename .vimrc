@@ -26,7 +26,7 @@ Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'mattn/zencoding-vim'
+Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/AnsiEsc.vim.git'
 
 call vundle#end()
