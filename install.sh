@@ -14,16 +14,16 @@ BASEDIR=$(pwd)
 function linkconf {
   IN="$BASEDIR/$1"
   OUT="$2/$1"
-  echo -n "  $IN -> $OUT"
   if [ -e "$OUT" ]; then
-    echo " [Exists]"
+    echo ">>> $OUT exists. Overwrite? (y/N) "
+    read _ok
   else
+    echo -n ">>> $IN -> $OUT"
+    _ok='y'
+  fi
+  if [[ $_ok == 'y' ]]; then
+    rm -rvi "$OUT"
     ln -s "$IN" "$OUT" >/dev/null 2>&1
-    if [ $? -eq 0 ]; then
-      echo " [OK]"
-    else
-      echo " [Fail]"
-    fi
   fi
 }
 
