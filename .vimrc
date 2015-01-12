@@ -7,27 +7,27 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Bundle "gmarik/Vundle.vim"
+Plugin 'gmarik/Vundle.vim'
 
-Bundle "Valloric/YouCompleteMe"
-Bundle "scrooloose/syntastic"
-Bundle "klen/python-mode"
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/syntastic'
+Plugin 'klen/python-mode'
 
-Bundle "vimoutliner/vimoutliner"
-Bundle "nelstrom/vim-markdown-folding"
+Plugin 'vimoutliner/vimoutliner'
+Plugin 'nelstrom/vim-markdown-folding'
 
-Bundle "tpope/vim-markdown"
-Bundle "tpope/vim-fugitive"
-Bundle "tpope/vim-rails"
-Bundle "bling/vim-airline"
-Bundle "b4winckler/vim-angry"
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'bling/vim-airline'
+Plugin 'b4winckler/vim-angry'
 
-Bundle "Shougo/unite.vim"
-Bundle "Shougo/vimproc.vim"
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
 
-Bundle "scrooloose/nerdcommenter"
-Bundle "mattn/zencoding-vim"
-Bundle "vim-scripts/AnsiEsc.vim.git"
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mattn/zencoding-vim'
+Plugin 'vim-scripts/AnsiEsc.vim.git'
 
 call vundle#end()
 
