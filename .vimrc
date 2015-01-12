@@ -17,17 +17,19 @@ Plugin 'vimoutliner/vimoutliner'
 Plugin 'nelstrom/vim-markdown-folding'
 
 Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
 Plugin 'bling/vim-airline'
 Plugin 'b4winckler/vim-angry'
 
-Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
 
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'mattn/emmet-vim'
-Plugin 'vim-scripts/AnsiEsc.vim.git'
+
+" Additional plugins, sometimes useful but slow to start
+" Plugin 'Shougo/unite.vim'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-rails'
+" Plugin 'mattn/emmet-vim'
+" Plugin 'vim-scripts/AnsiEsc.vim.git'
 
 call vundle#end()
 
@@ -179,13 +181,13 @@ set laststatus=2
 map <Leader>c :TagbarToggle<CR>
 
 " Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-noremap <leader>f :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
-noremap <leader>d :Unite -no-split -buffer-name=files   -start-insert file<cr>
-noremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-noremap <leader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
-noremap <leader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
+" let g:unite_source_history_yank_enable = 1
+" call unite#filters#matcher_default#use(['matcher_fuzzy'])
+" noremap <leader>f :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
+" noremap <leader>d :Unite -no-split -buffer-name=files   -start-insert file<cr>
+" noremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
+" noremap <leader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
+" noremap <leader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
 
 " Syntastic
 let g:syntastic_c_remove_include_errors = 1
@@ -339,8 +341,8 @@ au bufRead,bufNewFile *.json map <C-j> :%w !jsonv<CR>
 "Lua
 au bufRead,bufNewFile *.lua map <C-j> :%w !luav<CR>
 
-"Log files with color
-au bufRead *.log AnsiEsc
+" Log files with color
+" au bufRead *.log AnsiEsc
 
 function! HighlightRepeats() range
   let lineCounts = {}
