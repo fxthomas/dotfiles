@@ -6,3 +6,4 @@
 .lftp/transfer_log
 .vim/backup
 .vim/bundle
+.vim/.netrwhist
