@@ -15,12 +15,16 @@
   ci = commit
   co = checkout
   rb = rebase
+  cp = cherry-pick
+  pu = "!f() { git push -u ${1:-origin} `git symbolic-ref --short HEAD`; }; f"
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
   assumed = "!git ls-files -v | grep ^h | cut -c 3-"
   st = status
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   slg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
+  l = log --pretty=oneline --abbrev-commit
+  up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
   d = diff
   ds = diff --staged
 [push]
