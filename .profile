@@ -29,4 +29,4 @@ if [ -d "$HOME/.rvm/bin" ]; then PATH="$HOME/.rvm/bin:$PATH"; fi
 if [ -x "$HOME/.rvm/scripts/rvm" ]; then source ~/.rvm/scripts/rvm; fi
 
 # Add aliases
-if [ -f $HOME/.aliases]; then source $HOME/.aliases; fi
+if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
