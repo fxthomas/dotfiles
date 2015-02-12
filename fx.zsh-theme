@@ -65,6 +65,6 @@ bindkey '^M' accept-line-or-clear-warning
 
 # Prompt format
 PROMPT='
-%{$GREEN_BOLD%}%n%{$BLUE%}@%{$MAGENTA%}%m%{$WHITE%}:%{$YELLOW%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%} ${return_code}
+%{$GREEN_BOLD%}%n%{$BLUE%}@%{$MAGENTA%}%m%{$WHITE%} %{$YELLOW%}%~%u$(parse_git_dirty)$(git_prompt_ahead)%{$RESET_COLOR%} ${return_code}
 %{$BLUE%}>%{$RESET_COLOR%} '
 RPROMPT='${venv_prompt_status}%{$GREEN_BOLD%}$(current_branch)$(git_prompt_short_sha)$(git_prompt_status)%{$RESET_COLOR%}'
