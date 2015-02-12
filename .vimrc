@@ -74,10 +74,11 @@ set smartindent                   " smart autoindenting on a new line
 set softtabstop=2
 set tabstop=2                     " tab character amount
 
-" Folding
+" Folding (disabled by default)
 set foldcolumn=1
 set foldmethod=syntax
-set foldlevelstart=99
+set foldlevelstart=10
+set nofoldenable
 
 " Navigation
 set nostartofline                 " navigate closest column
