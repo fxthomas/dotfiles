@@ -1,13 +1,5 @@
-
-##
-# Your previous /Users/fx/.bash_profile file was backed up as /Users/fx/.bash_profile.macports-saved_2011-09-28_at_15:06:02
-##
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export PAGER=/usr/local/bin/most
-export NODE_PATH=/usr/local/lib/node_modules
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-export PATH=/Users/fx/Scripts:/usr/local/sbin/:/Applications/Xcode.app/Contents/Developer/usr/bin/:/usr/local/opt/i2p/:/Users/fx/.cabal/bin/:$PATH
+# Source common profile settings
+source ~/.profile
 
 # Don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
@@ -21,20 +13,6 @@ shopt -s checkwinsize
 # Make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-# Enable color support of ls
-if [ "$TERM" != "dumb" ]; then
-    alias ls='ls -h -G'
-fi
-
 # Enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -43,12 +21,6 @@ if type brew >/dev/null 2>&1; then
     . `brew --prefix`/etc/bash_completion
   fi
 fi
-
-# Set vi-style command line editing
-#set -o vi
-
-# Set VIM as the default editor
-export EDITOR="vim"
 
 # Set prompt variables
 # From: http://www.jonmaddox.com/2008/03/13/show-your-git-branch-name-in-your-prompt/

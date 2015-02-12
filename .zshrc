@@ -1,4 +1,5 @@
-# Set locale
+# Run .profile
+if [[ -e $HOME/.profile ]]; then source $HOME/.profile; fi
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -33,36 +34,11 @@ ZSH_THEME="fx"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins+=(git)
 
-# Add standard system paths
-export PATH=/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/sbin/:$PATH
-
-if which ruby >/dev/null && which gem >/dev/null; then
-  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
-
-# Add my scripts
-export PATH=$HOME/Scripts:$PATH
-
-# Editor is VIM
-export EDITOR=$(which vim)
-
-# Run custom script
-if [[ -e $HOME/.zshrc_before ]]; then source $HOME/.zshrc_before; fi
-
 # Run oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Display MotD
 if [[ -e $HOME/.motd ]]; then cat $HOME/.motd; fi
-
-# Run custom script
-if [[ -e $HOME/.zshrc_after ]]; then source $HOME/.zshrc_after; fi
-
-# Setup aliases
-if [[ -e $HOME/.zshrc_aliases ]]; then source $HOME/.zshrc_aliases; fi
-
-# Add RVM to PATH for scripting
-export PATH=$PATH:$HOME/.rvm/bin
 
 # Disable Virtualenv prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
