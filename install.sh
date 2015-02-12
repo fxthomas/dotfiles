@@ -45,7 +45,8 @@ linkconf .tmux.conf ~
 linkconf .vim ~
 linkconf .vimrc ~
 linkconf .zshrc ~
-linkconf .zshrc_aliases ~
+linkconf .aliases ~
+linkconf .profile ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 
 # Install Vim bundles
