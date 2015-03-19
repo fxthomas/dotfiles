@@ -43,8 +43,9 @@ alias pacman='pacman --color auto'
 alias tmux='tmux -2'
 
 # Some ls aliases
-alias lrt='ls -lrt'
-alias la='ls -la'
+alias ll='ls -lh'
+alias lrt='ls -lrth'
+alias la='ls -lha'
 
 # Cuts selected columns in multi-space commands (e.g. ps)
 alias fcut="tr -s ' ' | cut -d ' ' -f"
