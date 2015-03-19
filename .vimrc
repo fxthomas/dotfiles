@@ -210,9 +210,10 @@ let g:pymode_folding = 0
 " Keyboard bindings "
 """""""""""""""""""""
 
-" Copy/Paste using Ctrl-C and Ctrl-V
-vmap <C-c> :w !pbcopy<CR>
-imap <C-v> <Esc>:r !pbpaste<CR>i
+" Copy/Cut/Paste using Ctrl-C, Ctrl-X and Ctrl-V
+vmap <C-c> "+y
+vmap <C-x> "+d
+imap <C-v> <Esc> "+pi
 
 " Wrapped line navigation
 noremap <C-J> gj
