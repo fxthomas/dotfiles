@@ -16,6 +16,7 @@
   co = checkout
   rb = rebase
   cp = cherry-pick
+  ski = stash --keep-index
   pu = "!f() { git push -u ${1:-origin} `git symbolic-ref --short HEAD`; }; f"
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
