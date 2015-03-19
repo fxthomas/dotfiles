@@ -47,6 +47,7 @@ linkconf .vimrc ~
 linkconf .zshrc ~
 linkconf .aliases ~
 linkconf .profile ~
+linkconf .psqlrc ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 
 # Install Vim bundles
