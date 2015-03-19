@@ -11,9 +11,8 @@ alias edit "eval -f \"get $0 -o ~/.lftp/edit.tmp.$$ && shell \\\"cp -p ~/.lftp/e
 alias vim "eval -f \"get $0 -o ~/.lftp/edit.tmp.$$ && shell \\\"cp -p ~/.lftp/edit.tmp.$$ ~/.lftp/edit.tmp.$$.orig && $EDITOR ~/.lftp/edit.tmp.$$ && test ~/.lftp/edit.tmp.$$ -nt ~/.lftp/edit.tmp.$$.orig\\\" && put ~/.lftp/edit.tmp.$$ -o $0; shell rm -f ~/.lftp/edit.tmp.$$*\""
 alias upload "mirror -R -v"
 
-## make prompt look better
-#set prompt "lftp \S\? \u\@\h:\w> "
-set prompt "\[\033[36m\]\u\[\033[32m\]\@\[\033[36m\]\h\[\033[33m\]:ftp\[\033[32m\] [\[\033[32m\]\w\[\033[32m\]] \[\033[0m\]\n"
+# make prompt look better
+set prompt "\[\033[32;1m\]\u\[\033[034;1m\]\@\[\033[035;1m\]\h \[\033[033;1m\]ftp:\w\n\[\033[031m\]>\[\033[0m\] "
 
 ## some may prefer colors (contributed by Matthew <mwormald@optusnet.com.au>)
 #set prompt "\[\e[1;30m\][\[\e[0;34m\]f\[\e[1m\]t\[\e[37m\]p\[\e[30m\]] \[\e[34m\]\u\[\e[0;34m\]\@\[\e[1m\]\h\[\e[1;30m\]:\[\e[1;34m\]\w\[\e[1;30m\]>\[\e[0m\] "
