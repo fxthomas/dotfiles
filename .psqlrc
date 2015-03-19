@@ -1,7 +1,6 @@
 \set QUIET 1
 -- formatting
 \x auto
-\pset columns 20
 \set VERBOSITY verbose
 \set ON_ERROR_ROLLBACK interactive
 -- show execution times
@@ -9,7 +8,7 @@
 -- replace nulls
 \pset null NULL
 \pset linestyle unicode
-\pset border 2
+\pset border 0
 
 -- colorize
 \set PROMPT1 '%[%033[32;1m%]%n%[%033[034;1m%]@%[%033[035;1m%]%M %[%033[033;1m%]sql:%/\n%[%033[031m%]>%[%033[0m%] '
