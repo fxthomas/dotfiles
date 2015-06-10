@@ -133,6 +133,10 @@ if &term=="xterm"
  set t_Co=256
 endif
 
+" Displaly netrw listings in a tree
+let g:netrw_liststyle=3
+map <Leader>f :40vnew<cr>:Explore<cr>
+
 """"""""""""""""""
 " Syntax options "
 """"""""""""""""""
