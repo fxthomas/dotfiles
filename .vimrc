@@ -8,24 +8,19 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
-
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'nelstrom/vim-markdown-folding'
-
 Plugin 'tpope/vim-markdown'
 Plugin 'bling/vim-airline'
 Plugin 'b4winckler/vim-angry'
-
 Plugin 'Shougo/vimproc.vim'
-
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'Shougo/unite.vim'
 
 " Additional plugins, sometimes useful but slow to start
-" Plugin 'Shougo/unite.vim'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-rails'
 " Plugin 'mattn/emmet-vim'
@@ -187,13 +182,13 @@ set laststatus=2
 map <Leader>c :TagbarToggle<CR>
 
 " Unite
-" let g:unite_source_history_yank_enable = 1
-" call unite#filters#matcher_default#use(['matcher_fuzzy'])
-" noremap <leader>f :Unite -no-split -buffer-name=files   -start-insert file_rec/async<cr>
-" noremap <leader>d :Unite -no-split -buffer-name=files   -start-insert file<cr>
-" noremap <leader>r :Unite -no-split -buffer-name=mru     -start-insert file_mru<cr>
-" noremap <leader>y :Unite -no-split -buffer-name=yank    history/yank<cr>
-" noremap <leader>e :Unite -no-split -buffer-name=buffer  buffer<cr>
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+noremap <leader>f :Unite -buffer-name=files   -start-insert file_rec/async<cr>
+noremap <leader>d :Unite -buffer-name=files   -start-insert file<cr>
+noremap <leader>r :Unite -buffer-name=mru     -start-insert file_mru<cr>
+noremap <leader>y :Unite -buffer-name=yank    history/yank<cr>
+noremap <leader>e :Unite -buffer-name=buffer  buffer<cr>
 
 " Syntastic
 let g:syntastic_c_remove_include_errors = 1
