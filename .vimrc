@@ -86,6 +86,8 @@ set t_vb=''
 " n = normal mode, i = insert, c = command, a = all
 set mouse=ni
 
+set scrolloff=4
+
 " Setting menu tab completion
 set wildignore+=*.o,*~,.lo
 set wildignore+=.jpg,.png,.jpeg,.gif,~,.swp,.swo,.info,.o,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc,.pyc,.pyo
