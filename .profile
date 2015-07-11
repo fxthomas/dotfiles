@@ -16,7 +16,7 @@ if [ -d "$HOME/.local/bin" ]; then PATH="$HOME/.local/bin:$PATH"; fi
 if [ -d "$HOME/Scripts" ]; then PATH="$HOME/Scripts:$PATH"; fi
 
 # Add Android tools to the PATH
-export ANDROID_HOME="/usr/local/opt/android-sdk/"
+export ANDROID_HOME="/opt/android-sdk/"
 export PATH=$ANDROID_HOME/tools:$PATH
 export PATH=$ANDROID_HOME/build-tools/17.0.0:$PATH
 export PATH=$ANDROID_HOME/platform-tools:$PATH
