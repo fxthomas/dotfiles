@@ -223,6 +223,9 @@ noremap <C-K> gk
 " Run "make" with Enter
 " noremap <C-M> :!make<CR>
 
+" Allow saving of files as sudo when I forgot to start vim using sudo
+cmap w!! w !sudo tee > /dev/null %
+
 " New tab with ,t and Ctrl-T
 map <Leader>t :tabnew<CR>
 nmap <C-t> :tabnew<CR>
