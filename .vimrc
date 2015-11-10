@@ -8,23 +8,30 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
+
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'nelstrom/vim-markdown-folding'
-Plugin 'tpope/vim-markdown'
-Plugin 'bling/vim-airline'
-Plugin 'b4winckler/vim-angry'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Shougo/unite.vim'
 
-" Additional plugins, sometimes useful but slow to start
-" Plugin 'tpope/vim-fugitive'
-" Plugin 'tpope/vim-rails'
-" Plugin 'mattn/emmet-vim'
-" Plugin 'vim-scripts/AnsiEsc.vim.git'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'bling/vim-airline'
+Plugin 'tfnico/vim-gradle'
+Plugin 'honza/dockerfile.vim'
+Plugin 'b4winckler/vim-angry'
+
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/vimproc.vim'
+
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'mattn/emmet-vim'
+Plugin 'vim-scripts/AnsiEsc.vim.git'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 
