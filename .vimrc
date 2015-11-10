@@ -212,6 +212,11 @@ let g:pymode_lint = 0
 let g:pymode_rope = 0
 let g:pymode_folding = 0
 
+" Indent Guides
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#080808 ctermbg=232
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#121212 ctermbg=233
+autocmd VimEnter * silent exe ":IndentGuidesEnable"
 """""""""""""""""""""
 " Keyboard bindings "
 """""""""""""""""""""
