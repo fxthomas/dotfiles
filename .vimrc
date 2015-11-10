@@ -217,6 +217,12 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#080808 ctermbg=232
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#121212 ctermbg=233
 autocmd VimEnter * silent exe ":IndentGuidesEnable"
+
+" NERDCommenter
+let g:NERDCustomDelimiters= {
+      \ 'python': {'left': '# '}
+\ }
+
 """""""""""""""""""""
 " Keyboard bindings "
 """""""""""""""""""""
