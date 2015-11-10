@@ -253,117 +253,129 @@ noremap <silent> <Space> :silent noh<Bar>echo<CR>
 """"""""""""""""""""""""""
 
 "HTML Pages
-au bufNewFile *.html 0r ~/.vim/templates/html
-au bufNewFile *.html silent exe "%s/%PLACE_CURSOR%//"
-au bufNewFile *.htm 0r ~/.vim/templates/html
-au bufNewFile *.htm silent exe "%s/%PLACE_CURSOR%//"
+augroup html
+  au bufNewFile *.html 0r ~/.vim/templates/html
+  au bufNewFile *.html silent exe "%s/%PLACE_CURSOR%//"
+  au bufNewFile *.htm 0r ~/.vim/templates/html
+  au bufNewFile *.htm silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "PHP Scripts
-au bufNewFile *.php 0r ~/.vim/templates/php
-au bufNewFile *.php silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.php silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.php silent exe "%s/%PLACE_CURSOR%//"
+augroup php
+  au bufNewFile *.php 0r ~/.vim/templates/php
+  au bufNewFile *.php silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.php silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.php silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "CSS Stylesheets
-au bufNewFile *.css 0r ~/.vim/templates/css
-au bufNewFile *.css silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.css silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.css silent exe "%s/%PLACE_CURSOR%//"
+augroup css
+  au bufNewFile *.css 0r ~/.vim/templates/css
+  au bufNewFile *.css silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.css silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.css silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "Bash scripts
-au bufNewFile *.sh 0r ~/.vim/templates/bash
-au bufNewFile *.sh silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.sh silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.sh silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.sh vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1# \2/g<CR>:silent noh<CR>
+augroup shellscripts
+  au bufNewFile *.sh 0r ~/.vim/templates/bash
+  au bufNewFile *.sh silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.sh silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.sh silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "Python Scripts
-au bufNewFile *.py 0r ~/.vim/templates/python
-au bufNewFile *.py silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.py silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.py silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.py vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1# \2/g<CR>:silent noh<CR>
-
-"Python2 Scripts
-au bufNewFile *.py2 0r ~/.vim/templates/python2
-au bufNewFile *.py2 silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.py2 silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.py2 silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.py2 vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1# \2/g<CR>:silent noh<CR>
+augroup pythonscripts
+  au bufNewFile *.py 0r ~/.vim/templates/python
+  au bufNewFile *.py silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.py silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.py silent exe "%s/%PLACE_CURSOR%//"
+  au bufNewFile *.py2 0r ~/.vim/templates/python2
+  au bufNewFile *.py2 silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.py2 silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.py2 silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "C++ Source files
-au bufNewFile *.cpp 0r ~/.vim/templates/cpp
-au bufNewFile *.cpp silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.cpp silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.cpp silent exe "%s:%PLACE_FILENOEXT%:".substitute(expand("%"), ".cpp$", "", "g").":g"
-au bufNewFile *.cpp silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.cpp vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
+augroup c_cpp
+  au bufNewFile *.cpp 0r ~/.vim/templates/cpp
+  au bufNewFile *.cpp silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.cpp silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.cpp silent exe "%s:%PLACE_FILENOEXT%:".substitute(expand("%"), ".cpp$", "", "g").":g"
+  au bufNewFile *.cpp silent exe "%s/%PLACE_CURSOR%//"
+  au bufNewFile *.hpp 0r ~/.vim/templates/hpp
+  au bufNewFile *.hpp silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.hpp silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.hpp silent exe "%s:%PLACE_FILENOEXT%:".substitute(expand("%"), ".hpp$", "", "g").":g"
+  au bufNewFile *.hpp silent exe "%s/%PLACE_CURSOR%//"
+  au bufNewFile *.c 0r ~/.vim/templates/c
+  au bufNewFile *.c silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.c silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.c silent exe "%s/%PLACE_CURSOR%//"
+  au bufNewFile *.h 0r ~/.vim/templates/h
+  au bufNewFile *.h silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.h silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.h silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "Haskell Source files
-au bufNewFile *.hs 0r ~:.vim:templates:hs
-au bufNewFile *.hs silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.hs silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.hs silent exe "%s/%PLACE_FILENOEXT%/".substitute(expand("%"), ".hs$", "", "g")."/g"
-
-"C++ Headers
-au bufNewFile *.hpp 0r ~/.vim/templates/hpp
-au bufNewFile *.hpp silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.hpp silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.hpp silent exe "%s:%PLACE_FILENOEXT%:".substitute(expand("%"), ".hpp$", "", "g").":g"
-au bufNewFile *.hpp silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.hpp vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
-
-"C Source files
-au bufNewFile *.c 0r ~/.vim/templates/c
-au bufNewFile *.c silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.c silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.c silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.c vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
+augroup haskell
+  au bufNewFile *.hs 0r ~:.vim:templates:hs
+  au bufNewFile *.hs silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.hs silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.hs silent exe "%s/%PLACE_FILENOEXT%/".substitute(expand("%"), ".hs$", "", "g")."/g"
+augroup END
 
 "C Headers
-au bufNewFile *.h 0r ~/.vim/templates/h
-au bufNewFile *.h silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.h silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.h silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.h vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
 
 "Java source code
-au bufNewFile *.java 0r ~/.vim/templates/java
-au bufNewFile *.java silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.java silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.java silent exe "%s:%PLACE_FILENOEXT%:".substitute(expand("%"), ".java$", "", "g").":g"
-au bufNewFile *.java silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.java vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
+augroup java
+  au bufNewFile *.java 0r ~/.vim/templates/java
+  au bufNewFile *.java silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.java silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.java silent exe "%s:%PLACE_FILENOEXT%:".substitute(expand("%"), ".java$", "", "g").":g"
+  au bufNewFile *.java silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "C for CUDA source code
-au bufNewFile *.cu 0r ~/.vim/templates/cu
-au bufNewFile *.cu silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.cu silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.cu silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.cu vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
+augroup cuda
+  au bufNewFile *.cu 0r ~/.vim/templates/cu
+  au bufNewFile *.cu silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.cu silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.cu silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "Ninja Build Script
-au bufNewFile *.ninja 0r ~/.vim/templates/ninja
-au bufNewFile *.ninja silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.ninja silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.ninja silent exe "%s/%PLACE_CURSOR%//"
+augroup ninja
+  au bufNewFile *.ninja 0r ~/.vim/templates/ninja
+  au bufNewFile *.ninja silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.ninja silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.ninja silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
 "JavaScript
-au bufNewFile *.js 0r ~/.vim/templates/js
-au bufNewFile *.js silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
-au bufNewFile *.js silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
-au bufNewFile *.js silent exe "%s/%PLACE_CURSOR%//"
-au bufRead,bufNewFile *.js vmap <C-/> :s/^\([ \t]*\)\(.*\)/\1\/\/ \2/g<CR>:silent noh<CR>
-au bufRead,bufNewFile *.js vmap \ :s/^\([ \t]*\)\/\/ *\(.*\)/\1\2/g<CR>:silent noh<CR>
+augroup js
+  au bufNewFile *.js 0r ~/.vim/templates/js
+  au bufNewFile *.js silent exe "%s:%PLACE_FILENAME%:".expand("%").":g"
+  au bufNewFile *.js silent exe "%s/%PLACE_CREATETIME%/".strftime("%c")."/g"
+  au bufNewFile *.js silent exe "%s/%PLACE_CURSOR%//"
+augroup END
 
-"JSON
-au bufRead,bufNewFile *.json map <C-j> :%w !jsonv<CR>
+"Ruby
+augroup rb
+  au bufNewFile *.rb 0r ~/.vim/templates/rb
+augroup END
 
-"Lua
-au bufRead,bufNewFile *.lua map <C-j> :%w !luav<CR>
+"QGIS XML files
+augroup qgis
+  au bufRead,bufNewFile *.qml set syntax=xml
+  au bufRead,bufNewFile *.qpt set syntax=xml
+augroup END
 
-" Log files with color
-" au bufRead *.log AnsiEsc
+"Log files with color
+augroup logfiles
+  au bufRead *.log AnsiEsc
+augroup END
 
 function! HighlightRepeats() range
   let lineCounts = {}
