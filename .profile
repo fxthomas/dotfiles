@@ -14,6 +14,8 @@ export EDITOR=$(which vim)
 if [ -d "$HOME/bin" ]; then PATH="$HOME/bin:$PATH"; fi
 if [ -d "$HOME/.local/bin" ]; then PATH="$HOME/.local/bin:$PATH"; fi
 if [ -d "$HOME/Scripts" ]; then PATH="$HOME/Scripts:$PATH"; fi
+if [ -d "$HOME/.local/lib/python2.7" ]; then export PYTHONUSERBASE="$HOME/.local"; fi
+if [ -d "$HOME/.gem/ruby/2.2.0/bin" ]; then PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"; fi
 
 # Add Android tools to the PATH
 export ANDROID_HOME="/opt/android-sdk/"
