@@ -1,5 +1,5 @@
-# Source common profile settings
-source ~/.profile
+# Run .profile
+if [[ -e $HOME/.profile ]]; then source $HOME/.profile; fi
 
 # Don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
