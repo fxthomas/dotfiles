@@ -49,6 +49,7 @@ linkconf .zshrc ~
 linkconf .aliases ~
 linkconf .profile ~
 linkconf .psqlrc ~
+linkconf .multitailrc ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 linkconf pip.conf ~/.pip
 

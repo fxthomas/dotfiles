@@ -1,0 +1,15 @@
+colorscheme:better_syslog:kernel and unsorted messages
+cs_re_s:red,,bold:kernel: ([^:]*): segfault at [^ ]* rip [^ ]* rsp [^ ]* error
+cs_re:yellow:kernel: .*: segfault at [^ ]* rip [^ ]* rsp [^ ]* error
+cs_re:red,,inverse/underline:kernel
+cs_re:green:Detected.*$
+cs_re:green:\[
+cs_re:green:\]
+cs_re:cyan::
+cs_re:blue|blue,,bold:^... .. ..:..:..
+cs_re_s:,,bold:^... .. ..:..:.. [^ ]* ([A-z0-9]*)
+cs_re:red:scanlogd.*
+cs_re:yellow:Did.not
+cs_re:yellow:^.*supervisord: .* WARNING/.*$
+cs_re:red:^.*supervisord: .* ERROR/.*$
+cs_re:red:^.*supervisord: .* FATAL/.*$
