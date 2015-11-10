@@ -34,6 +34,7 @@ git submodule update
 
 # Link configuration
 echo "Linking configuration..."
+mkdir -p ~/.pip
 linkconf .oh-my-zsh ~
 linkconf .bash_profile ~
 linkconf .bashrc ~
@@ -49,6 +50,7 @@ linkconf .aliases ~
 linkconf .profile ~
 linkconf .psqlrc ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
+linkconf pip.conf ~/.pip
 
 # Install Vim bundles
 echo "Installing Vim bundles..."
