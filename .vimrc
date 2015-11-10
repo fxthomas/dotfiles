@@ -242,13 +242,8 @@ noremap <C-K> gk
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
 
-" New tab with ,t and Ctrl-T
+" New tab with ,t
 map <Leader>t :tabnew<CR>
-nmap <C-t> :tabnew<CR>
-imap <C-t> <Esc>:tabnew<CR>
-map <Leader>n :tabnext<CR>
-map <Leader>p :tabprevious<CR>
-map <Leader>s :sort<CR>
 
 " Space bar un-highligts search
 noremap <silent> <Space> :silent noh<Bar>echo<CR>
