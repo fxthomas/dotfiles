@@ -78,7 +78,7 @@ set tabstop=2                     " tab character amount
 
 " Folding (disabled by default)
 set foldcolumn=1
-set foldmethod=syntax
+set foldmethod=manual
 set foldlevelstart=10
 set nofoldenable
 
