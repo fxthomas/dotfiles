@@ -17,6 +17,9 @@ if [ -d "$HOME/Scripts" ]; then PATH="$HOME/Scripts:$PATH"; fi
 if [ -d "$HOME/.local/lib/python2.7" ]; then export PYTHONUSERBASE="$HOME/.local"; fi
 if [ -d "$HOME/.gem/ruby/2.2.0/bin" ]; then PATH="$HOME/.gem/ruby/2.2.0/bin:$PATH"; fi
 
+# Set the GOPATH to ~/.local
+export GOPATH="$HOME/.local"
+
 # Add Android tools to the PATH
 export ANDROID_HOME="/opt/android-sdk/"
 export PATH=$ANDROID_HOME/tools:$PATH
