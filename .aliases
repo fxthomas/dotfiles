@@ -7,7 +7,7 @@ if [[ "$PLATFORM" == 'Linux' ]]; then
   alias pbcopy='xclip -selection clipboard'
   alias pbpaste='xclip -selection clipboard -o'
   alias open='xdg-open'
-  alias dus='du -hd 1 | sort -h'
+  alias dus='du -hxd 1 | sort -h'
 elif [[ "$PLATFORM" == 'FreeBSD' ]]; then
   alias ls='ls -Gh'
 elif [[ "$PLATFORM" == 'Darwin' ]]; then
