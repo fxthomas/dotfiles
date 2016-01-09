@@ -31,3 +31,7 @@
   ds = diff --staged
 [push]
 	default = simple
+[merge]
+  tool = vimdiffex
+[mergetool.vimdiffex]
+  cmd = vimdiff -f -d -c \"wincmd J\" -c 'call map(filter(range(1, bufnr(\"$\")), \"bufexists(v:val)\"), \"setbufvar(v:val, \\\"&modifiable\\\", v:val == 1)\")' \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
