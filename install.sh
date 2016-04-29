@@ -34,7 +34,6 @@ git submodule update
 
 # Link configuration
 echo "Linking configuration..."
-mkdir -p ~/.pip
 linkconf .oh-my-zsh ~
 linkconf .bash_profile ~
 linkconf .bashrc ~
@@ -51,7 +50,7 @@ linkconf .profile ~
 linkconf .psqlrc ~
 linkconf .multitailrc ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
-linkconf pip.conf ~/.pip
+mkdir -p ~/.config && linkconf flake8 ~/.config
 
 # Install Vim bundles
 echo "Installing Vim bundles..."
@@ -71,9 +70,9 @@ else
 fi
 
 # Make YCM
-if [[ -f ~/.vim/bundle/YouCompleteMe/install.sh ]]; then
+if [[ -f ~/.vim/bundle/YouCompleteMe/install.py ]]; then
   echo "Compiling YCM..."
-  cd ~/.vim/bundle/YouCompleteMe && ./install.sh
+  cd ~/.vim/bundle/YouCompleteMe && ./install.py
 fi
 
 # Finish!

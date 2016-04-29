@@ -7,7 +7,7 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
@@ -19,6 +19,9 @@ Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-airline'
 Plugin 'tfnico/vim-gradle'
 Plugin 'honza/dockerfile.vim'
@@ -26,12 +29,12 @@ Plugin 'b4winckler/vim-angry'
 
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'rking/ag.vim'
 
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/AnsiEsc.vim.git'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-unimpaired'
 
 call vundle#end()
 
@@ -134,6 +137,9 @@ colorscheme lettuce
 au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 au InsertLeave * match ExtraWhitespace /\s\+$/
 
+" Better show weird characters
+set list listchars=nbsp:¬,tab:>-,extends:»,precedes:«,trail:•
+
 " Use 256 color palette if available
 if &term=="xterm"
  set t_Co=256
@@ -202,9 +208,8 @@ let g:syntastic_c_remove_include_errors = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_python_flake8_args='--max-line-length=95'
-"let g:syntastic_auto_loc_list=2
+let g:syntastic_python_checkers=['flake8', 'pydocstyle']
+let g:syntastic_loc_list_height = 5
 
 " Disable expensive Python mode scripts : most of the useful things are handled
 " by YCM and Syntastic.
@@ -241,9 +246,6 @@ noremap <C-K> gk
 
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cmap w!! w !sudo tee > /dev/null %
-
-" New tab with ,t
-map <Leader>t :tabnew<CR>
 
 " Space bar un-highligts search
 noremap <silent> <Space> :silent noh<Bar>echo<CR>
@@ -370,6 +372,7 @@ augroup END
 augroup qgis
   au bufRead,bufNewFile *.qml set syntax=xml
   au bufRead,bufNewFile *.qpt set syntax=xml
+  au bufRead,bufNewFile *.qgs set syntax=xml
 augroup END
 
 "Log files with color

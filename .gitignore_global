@@ -5,3 +5,4 @@
 *.pyo
 *.pyc
 DerivedData
+*.aux.xml
