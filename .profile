@@ -5,7 +5,7 @@
 # the files are located in the bash-doc package.
 
 # Editor is VIM
-export EDITOR=$(which vim)
+export EDITOR=vim
 
 # Add standard system paths
 # export PATH="/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local/sbin/:$PATH"
