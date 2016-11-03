@@ -63,3 +63,7 @@ alias killit='kill -9 %%'
 
 # Runs a command under GDB immediately
 alias gdbrun='gdb -ex=r --args'
+
+# Short format version of the current date or date/time
+alias dt='date +%Y%m%d'
+alias dtt='date +%Y%m%d_%H%M%S'
