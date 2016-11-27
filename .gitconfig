@@ -10,6 +10,7 @@
 [alias]
   b = branch
   bd = branch -d
+  bdd = branch -D
   st = status
   ci = commit
   cia = commit --amend
