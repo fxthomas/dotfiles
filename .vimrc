@@ -10,8 +10,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/syntastic'
 Plugin 'klen/python-mode'
+Plugin 'w0rp/ale'
 
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'nelstrom/vim-markdown-folding'
@@ -203,16 +203,8 @@ noremap <leader>r :Unite -buffer-name=mru     -start-insert file_mru<cr>
 noremap <leader>y :Unite -buffer-name=yank    history/yank<cr>
 noremap <leader>e :Unite -buffer-name=buffer  buffer<cr>
 
-" Syntastic
-let g:syntastic_c_remove_include_errors = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_python_checkers=['flake8', 'pydocstyle']
-let g:syntastic_loc_list_height = 5
-
-" Disable expensive Python mode scripts : most of the useful things are handled
-" by YCM and Syntastic.
+" Disable expensive Python mode scripts : most of the useful things are
+" handled by YCM and ALE which are asynchronous.
 let g:pymode_lint = 0
 let g:pymode_rope = 0
 let g:pymode_folding = 0
