@@ -209,6 +209,9 @@ let g:pymode_lint = 0
 let g:pymode_rope = 0
 let g:pymode_folding = 0
 
+" Configure ALE to always open the loclist
+let g:ale_open_list = 1
+
 " Indent Guides
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#080808 ctermbg=232
