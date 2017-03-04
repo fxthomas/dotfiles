@@ -36,3 +36,6 @@ if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
 # Hack to make Digikam icons work properly
 # See: https://wiki.archlinux.org/index.php/Digikam
 export QT_QPA_PLATFORMTHEME="qt5ct"
+
+# Added by travis gem
+[ -f /home/fx/.travis/travis.sh ] && source /home/fx/.travis/travis.sh
