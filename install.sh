@@ -11,6 +11,22 @@
 
 BASEDIR=$(pwd)
 
+function copyconf {
+  IN="$BASEDIR/$1"
+  OUT="$2/$1"
+  if [ -e "$OUT" ]; then
+    echo ">>> $OUT exists. Overwrite? (y/N) "
+    read _ok
+  else
+    echo -n ">>> $IN -> $OUT"
+    _ok='y'
+  fi
+  if [[ $_ok == 'y' ]]; then
+    rm -rvi "$OUT"
+    cp "$IN" "$OUT" >/dev/null 2>&1
+  fi
+}
+
 function linkconf {
   IN="$BASEDIR/$1"
   OUT="$2/$1"
@@ -38,7 +54,8 @@ linkconf .oh-my-zsh ~
 linkconf .bash_profile ~
 linkconf .bashrc ~
 linkconf .gdbinit ~
-linkconf .gitconfig ~
+copyconf .gitconfig ~
+linkconf .gitbase ~
 linkconf .gitignore_global ~
 linkconf .lftp ~
 linkconf .tmux.conf ~
