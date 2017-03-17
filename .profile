@@ -20,15 +20,18 @@ export PATH="/opt/android-studio/bin/:$PATH"
 
 # Setup local Python packages
 if [ -d "$HOME/.local/lib/python2.7" ]; then export PYTHONUSERBASE="$HOME/.local"; fi
-if [ -d "$HOME/.local/bin" ]; then PATH="$HOME/.local/bin:$PATH"; fi
+export PATH="$HOME/.local/bin:$PATH"
 
 # Setup local Ruby gems
-if [ -d "$HOME/.rvm/bin" ]; then PATH="$HOME/.rvm/bin:$PATH"; fi
 if [ -x "$HOME/.rvm/scripts/rvm" ]; then source ~/.rvm/scripts/rvm; fi
 if [ -d "$HOME/.gem/ruby" ]; then for p in "$HOME/.gem/ruby"/*; do PATH="$p/bin:$PATH"; done; fi
+export PATH="$HOME/.rvm/bin:$PATH"
 
 # Setup local Go packages
 export GOPATH="$HOME/.local"
+
+# Setup local NPM packages
+export PATH="$HOME/.npm/bin:$PATH"
 
 # Add aliases
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
