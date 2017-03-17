@@ -65,6 +65,7 @@ linkconf .zshrc ~
 linkconf .aliases ~
 linkconf .profile ~
 linkconf .psqlrc ~
+linkconf .npmrc ~
 linkconf .multitailrc ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 mkdir -p ~/.config && linkconf flake8 ~/.config
