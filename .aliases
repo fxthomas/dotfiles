@@ -67,3 +67,9 @@ alias gdbrun='gdb -ex=r --args'
 # Short format version of the current date or date/time
 alias dt='date +%Y%m%d'
 alias dtt='date +%Y%m%d_%H%M%S'
+
+# More powerful alias for strace
+alias strace="strace -frttTyy"
+
+# CSV to Excel conversion
+alias csv2xls="soffice --convert-to xls"
