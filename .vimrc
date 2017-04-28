@@ -380,6 +380,11 @@ augroup qgis
   au bufRead,bufNewFile *.qgs set syntax=xml
 augroup END
 
+"SQL scripts
+augroup sql
+  au bufRead,bufNewFile *.sql set formatprg="sqlformat -kupper -r -"
+augroup END
+
 "Log files with color
 augroup logfiles
   au bufRead *.log AnsiEsc
