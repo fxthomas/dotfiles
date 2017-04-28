@@ -28,7 +28,7 @@
 
 --helpful queries
 \set uptime 'select now() - backend_start as uptime from pg_stat_activity where pid = pg_backend_pid();'
-\set show_slow_queries 'SELECT (total_time / 1000 / 60) as total_minutes, (total_time/calls) as average_time, query FROM pg_stat_statements ORDER BY 1 DESC LIMIT 100;'
+\set show_slow_queries 'SELECT queryid, (total_time / 1000 / 60) as total_minutes, (total_time/calls) as average_time, query FROM pg_stat_statements ORDER BY average_time DESC LIMIT 100;'
 \set settings 'select name, setting,unit,context from pg_settings;'
 \set conninfo 'select usename, count(*) from pg_stat_activity group by usename;'
 \set activity 'select datname, pid, usename, application_name, client_addr, client_port, query, state from pg_stat_activity;'
