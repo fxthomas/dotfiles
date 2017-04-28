@@ -202,6 +202,9 @@ let g:pymode_lint = 0
 let g:pymode_rope = 0
 let g:pymode_folding = 0
 
+" YCM
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 " Indent Guides
 let g:indent_guides_auto_colors = 1
 autocmd VimEnter * silent exe ":IndentGuidesEnable"
