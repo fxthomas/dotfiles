@@ -236,6 +236,25 @@ cmap w!! w !sudo tee > /dev/null %
 " Space bar un-highligts search
 noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
+" Tmux-like bindings
+if has('nvim')
+  noremap <C-b>n :tabnext<CR>
+  noremap <C-b>c :tabnew<CR>:terminal<CR>
+  noremap <C-b>s :new<CR>:terminal<CR>
+  noremap <C-b>v :vnew<CR>:terminal<CR>
+  tnoremap <C-b>n <C-\><C-n>:tabnext<CR>
+  tnoremap <C-b>c <C-\><C-n>:tabnew<CR>:terminal<CR>
+  tnoremap <C-b>s <C-\><C-n>:new<CR>:terminal<CR>
+  tnoremap <C-b>v <C-\><C-n>:vnew<CR>:terminal<CR>
+  tnoremap <C-w> <C-\><C-n><C-w>
+
+  " Terminal escape
+  tnoremap <C-w><C-q> <C-\><C-n>
+  command! Vs split term://zsh
+  command! Vt vsplit term://zsh
+  command! Vv terminal
+end
+
 """"""""""""""""""""""""""
 " Auto template commands "
 """"""""""""""""""""""""""
