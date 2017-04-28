@@ -49,7 +49,7 @@ set ttyfast
 set autoread                      " Auto reload modified files
 set backspace=indent,eol,start    " backspace erases in insert mode
 set backup
-set formatoptions=l               " Don't break comments at middle of words
+set formatoptions=lq              " Don't break comments at middle of words
 set history=100                   " reasonable history
 set lbr
 set nocompatible                  " Ensure VIM really is in IMproved mode
