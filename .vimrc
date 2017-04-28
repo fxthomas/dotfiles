@@ -199,17 +199,15 @@ let g:pymode_rope = 0
 let g:pymode_folding = 0
 
 " Indent Guides
-let g:indent_guides_auto_colors = 0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#080808 ctermbg=232
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#121212 ctermbg=233
+let g:indent_guides_auto_colors = 1
 autocmd VimEnter * silent exe ":IndentGuidesEnable"
 
 " Netrw
 let g:netrw_banner = 0         " No banner
 let g:netrw_liststyle = 3      " Tree netrw style
-let g:netrw_browse_split = 4   " Files open in the previous window
-let g:netrw_winsize = 25       " Smaller size
-let g:netrw_altv = 1
+let g:netrw_winsize = 20       " Smaller window size
+let g:netrw_altv = 1           " Split on right by default
+let g:netrw_browse_split = 0   " Reuse the same window when opening
 
 " NERDCommenter
 let g:NERDCustomDelimiters= {
