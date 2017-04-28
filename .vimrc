@@ -27,7 +27,7 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'honza/dockerfile.vim'
 Plugin 'b4winckler/vim-angry'
 
-Plugin 'Shougo/unite.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'rking/ag.vim'
 
@@ -35,6 +35,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/AnsiEsc.vim.git'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'dietsche/vim-lastplace'
 
 call vundle#end()
 
@@ -190,18 +191,6 @@ endif
 
 " Powerline
 set laststatus=2
-
-" Tagbar
-map <Leader>c :TagbarToggle<CR>
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-noremap <leader>f :Unite -buffer-name=files   -start-insert file_rec/async<cr>
-noremap <leader>d :Unite -buffer-name=files   -start-insert file<cr>
-noremap <leader>r :Unite -buffer-name=mru     -start-insert file_mru<cr>
-noremap <leader>y :Unite -buffer-name=yank    history/yank<cr>
-noremap <leader>e :Unite -buffer-name=buffer  buffer<cr>
 
 " Disable expensive Python mode scripts : most of the useful things are
 " handled by YCM and ALE which are asynchronous.
