@@ -9,6 +9,9 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+" Themes
+Plugin 'morhetz/gruvbox'
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/python-mode'
 Plugin 'w0rp/ale'
@@ -131,8 +134,9 @@ au! bufWritePost .vimrc source %
 " Appearance "
 """"""""""""""
 
-" Lettuce colorscheme
-colorscheme lettuce
+" Colorscheme
+set background=dark
+colorscheme gruvbox
 
 " Show trailing whitespaces
 au ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
