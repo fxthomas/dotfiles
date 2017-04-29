@@ -7,38 +7,38 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 
+" General
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 " Themes
 Plugin 'morhetz/gruvbox'
 
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'klen/python-mode'
-Plugin 'w0rp/ale'
-
-Plugin 'vimoutliner/vimoutliner'
-Plugin 'nelstrom/vim-markdown-folding'
-
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
+" Navigation
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'b4winckler/vim-angry'
+Plugin 'dietsche/vim-lastplace'
+
+" Code completion and linting
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'w0rp/ale'
+
+" Language-specific
+Plugin 'klen/python-mode'
+Plugin 'nelstrom/vim-markdown-folding'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-rails'
 Plugin 'tfnico/vim-gradle'
 Plugin 'honza/dockerfile.vim'
-Plugin 'b4winckler/vim-angry'
-
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'rking/ag.vim'
-
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/AnsiEsc.vim.git'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'dietsche/vim-lastplace'
 
 call vundle#end()
 
@@ -409,3 +409,7 @@ function! HighlightRepeats() range
   endfor
 endfunction
 command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
+" Allow (secure) project-specific settings
+set exrc
+set secure

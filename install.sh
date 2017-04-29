@@ -29,7 +29,7 @@ function copyconf {
 
 function linkconf {
   IN="$BASEDIR/$1"
-  OUT="$2/$1"
+  OUT="$2/${3:-$1}"
   if [ -e "$OUT" ]; then
     echo ">>> $OUT exists. Overwrite? (y/N) "
     read _ok
@@ -68,6 +68,7 @@ linkconf .psqlrc ~
 linkconf .npmrc ~
 linkconf .multitailrc ~
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
+mkdir -p ~/.config/nvim && linkconf .vimrc ~/.config/nvim init.vim
 mkdir -p ~/.config && linkconf flake8 ~/.config
 
 # Install Vim bundles
