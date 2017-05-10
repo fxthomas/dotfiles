@@ -224,6 +224,9 @@ let g:NERDCustomDelimiters= {
       \ 'python': {'left': '# '}
 \ }
 
+" Ctrl-P
+let g:ctrlp_regexp = 1
+
 """""""""""""""""""""
 " Keyboard bindings "
 """""""""""""""""""""
