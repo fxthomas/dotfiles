@@ -188,13 +188,12 @@ endif
 
 " Vim 7 spell checker
 if has("spell")
-    setlocal spell spelllang=
     " Language : FR
     map ,lf :setlocal spell spelllang=fr<cr>
     " Language : EN
     map ,le :setlocal spell spelllang=en<cr>
     " Language : Aucun
-    map ,ln :setlocal spell spelllang=<cr>
+    map ,ln :setlocal nospell<cr>
 endif
 
 " Powerline
