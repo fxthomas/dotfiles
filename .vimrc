@@ -259,7 +259,8 @@ if has('nvim')
   tnoremap <C-b>c <C-\><C-n>:tabnew<CR>:terminal<CR>
   tnoremap <C-b>s <C-\><C-n>:new<CR>:terminal<CR>
   tnoremap <C-b>v <C-\><C-n>:vnew<CR>:terminal<CR>
-  tnoremap <ESC> <C-\><C-n>
+  tnoremap <C-b><Esc> <Esc>
+  tnoremap <Esc> <C-\><C-n>
 end
 
 """"""""""""""""""""""""""
