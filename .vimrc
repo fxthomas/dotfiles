@@ -71,6 +71,9 @@ set fileencoding=utf-8
 " Highlight searches, searches begin immediately
 set hlsearch
 set incsearch
+if has('nvim')
+  set inccommand=split
+end
 
 " Non-case-sensitive searches
 set ignorecase
