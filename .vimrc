@@ -22,6 +22,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-abolish'
 Plugin 'b4winckler/vim-angry'
 Plugin 'dietsche/vim-lastplace'
 
