@@ -73,3 +73,11 @@ alias strace="strace -frttTyy"
 
 # CSV to Excel conversion
 alias csv2xls="soffice --convert-to xls"
+
+# Count number of files in directory
+function dn() {
+for f; do
+  count=$(ls -Ub1 "$f" | wc -l)
+  echo "$count\t$f"
+done
+}
