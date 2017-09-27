@@ -66,6 +66,7 @@ alias gdbrun='gdb -ex=r --args'
 
 # Short format version of the current date or date/time
 alias dt='date +%Y%m%d'
+alias dtu='date +%Y-%m-%d'
 alias dtt='date +%Y%m%d_%H%M%S'
 
 # More powerful alias for strace
