@@ -63,6 +63,7 @@ set ruler                         " show line/character in statusbar
 set showcmd                       " show number of lines selected in visual
 set wildmenu                      " Expanded menu for command-line completion
 set cursorline                    " Show the cursorline
+set guicursor=                    " Disable GUI cursor (not supported in Guake)
 
 " File encodings
 set encoding=utf-8
