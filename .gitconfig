@@ -1,0 +1,6 @@
+[include]
+  # This file is used to store global Git settings
+  path = .gitbase
+[user]
+	name = François-Xavier Thomas
+	email = fxthoams@dxomark.com
