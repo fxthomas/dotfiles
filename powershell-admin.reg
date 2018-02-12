@@ -14,6 +14,13 @@ Windows Registry Editor Version 5.00
 ;
 ; [HKEY_CLASSES_ROOT\LibraryFolder\background\shell\Powershell]
 ; "Icon"="powershell.exe"
+;
+; The following registry keys are used :
+;
+; * HKEY_CLASSES_ROOT\Directory\shell\WSL: Directories
+; * HKEY_CLASSES_ROOT\Directory\Background\shell\WSL: Directory background
+; * HKEY_CLASSES_ROOT\Directory\Drive\shell\WSL: Drive icon
+; * HKEY_CLASSES_ROOT\Directory\LibraryFolder\Background\shell\WSL: Library folder
 
 [HKEY_CLASSES_ROOT\Directory\shell\OpenElevatedPS]
 @="Open PowerShell here as administrator"
