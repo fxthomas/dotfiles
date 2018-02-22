@@ -1,0 +1,16 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ipynb]
+@="Open with Jupyter"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\ipynb\command]
+@="\"C:\\Program Files\\Python36\\Scripts\\jupyter.exe\" \"notebook\" \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\ipynb]
+@="Open with Jupyter"
+
+[HKEY_CLASSES_ROOT\Directory\shell\ipynb\command]
+@="\"C:\\Program Files\\Python36\\Scripts\\jupyter.exe\" \"notebook\" \"%V\""
+
+[HKEY_CLASSES_ROOT\ipynb_auto_file\shell\open\command]
+@="\"C:\\Program Files\\Python36\\Scripts\\jupyter.exe\" \"notebook\" \"%V\""
