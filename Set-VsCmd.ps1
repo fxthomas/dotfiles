@@ -3,8 +3,8 @@
 #
 # Example:
 #
-#   Set-VsCmd 2015 x64  # Use VS 2015 64-bit tools
-#   Set-VsCmd 2015 x86  # Use VS 2015 32-bit tools
+#   Set-VsCmd 2015 x64 8.1  # Use VS 2015 64-bit tools with the 8.1 SDK
+#   Set-VsCmd 2015 x86 8.1  # Use VS 2015 32-bit tools with the 8.1 SDK
 #
 # See: http://putridparrot.com/blog/setup-powershell-to-use-the-visual-studio-paths-etc/
 # See: https://stackoverflow.com/questions/2124753/how-can-i-use-powershell-with-the-visual-studio-command-prompt
@@ -18,7 +18,10 @@ function Set-VsCmd
         [int]$version,
         [parameter(Mandatory=$true, HelpMessage="Enter architecture as x86, x64")]
         [ValidateSet("x86","x64")]
-        [string]$arch
+        [string]$arch,
+        [parameter(Mandatory=$true, HelpMessage="Enter Windows SDK version as 8.1 or 10")]
+        [ValidateSet("8.1","10")]
+        [string]$winsdkver
     )
 
     $VS_VERSION = @{ 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
@@ -30,7 +33,7 @@ function Set-VsCmd
         return
     }
     pushd $targetDir
-    cmd /c "$vcvars $arch & set" |
+    cmd /c "$vcvars $arch $winsdkver & set" |
     foreach {
       if ($_ -match "(.*?)=(.*)") {
         Set-Item -force -path "ENV:\$($matches[1])" -value "$($matches[2])"
