@@ -20,13 +20,18 @@ function Set-VsCmd
         [ValidateSet("x86","x64")]
         [string]$arch,
         [parameter(Mandatory=$true, HelpMessage="Enter Windows SDK version as 8.1 or 10")]
-        [ValidateSet("8.1","10")]
+        [ValidateSet("8.1")]
         [string]$winsdkver
     )
 
-    $VS_VERSION = @{ 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
-    $targetDir = "c:\Program Files (x86)\Microsoft Visual Studio $($VS_VERSION[$version])\VC"
-    $vcvars = "vcvarsall.bat"
+    if ($version -lt 2017) {
+      $VS_VERSION = @{ 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
+      $targetDir = "c:\Program Files (x86)\Microsoft Visual Studio $($VS_VERSION[$version])\VC"
+      $vcvars = "vcvarsall.bat"
+    } else {
+      $targetDir = "C:\Program Files (x86)\Microsoft Visual Studio\$version\BuildTools\VC\Auxiliary\Build"
+      $vcvars = "vcvarsall.bat"
+    }
 
     if (!(Test-Path (Join-Path $targetDir $vcvars))) {
         "Error: Visual Studio $version not installed"
@@ -43,3 +48,23 @@ function Set-VsCmd
     write-host "`nVisual Studio $version ($arch) Command Prompt variables set." -ForegroundColor Yellow
 }
 
+# Load developper tools for VS 2015 64-bits, with Windows SDK 8.1
+# Set-VsCmd 2015 x64 8.1
+
+# Set aliases for python
+function python2() { py -2 $args }
+function python2() { py -2 $args }
+function python3() { py -3 $args }
+function python2_64() { py -2.7-64 $args }
+function python3_64() { py -3.6-64 $args }
+function pip2() { py -2 -mpip $args }
+function pip3() { py -3 -mpip $args }
+function pip2_64() { py -2.7-64 -mpip $args }
+function pip3_64() { py -3.6-64 -mpip $args }
+function ipython2() { py -2 -mIPython $args }
+function ipython3() { py -3 -mIPython $args }
+function ipython2_64() { py -2.7-64 -mIPython $args }
+function ipython3_64() { py -3.6-64 -mIPython $args }
+
+# Use Ctrl-D to exit Powershell
+Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
