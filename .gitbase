@@ -13,6 +13,7 @@
   b = branch
   bd = branch -d
   bdd = branch -D
+  brv = branch -rv
   st = status
   ci = commit
   cia = commit --amend
