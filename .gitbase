@@ -3,6 +3,8 @@
   algorithm = patience
 [pager]
   diff =
+  status =
+  branch =
 [color]
   ui = auto
 [core]
