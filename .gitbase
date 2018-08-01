@@ -13,7 +13,8 @@
 [core]
   excludesfile = ~/.gitignore_global
 [alias]
-  b = branch
+  b = branch -v
+  br = branch -rv
   bd = branch -d
   bdd = branch -D
   st = status
