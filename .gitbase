@@ -1,6 +1,11 @@
+[status]
+  submodulesSummary = true
+[fetch]
+  recurseSubmodules = true
 [diff]
   tool = vimdiff
   algorithm = patience
+  mnemonicPrefix = true
 [pager]
   diff =
 [color]
