@@ -19,8 +19,13 @@ export PATH=$ANDROID_HOME/platform-tools:$PATH
 export PATH="/opt/android-studio/bin/:$PATH"
 
 # Setup local Python packages
-if [ -d "$HOME/.local/lib/python2.7" ]; then export PYTHONUSERBASE="$HOME/.local"; fi
+mkdir -p "$HOME/.local/lib"
+mkdir -p "$HOME/.local/bin"
+export PYTHONUSERBASE="$HOME/.local"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Setup local Python startup script
+if [ -f "$HOME/.python.py" ]; then export PYTHONSTARTUP="$HOME/.python.py"; fi
 
 # Setup local Ruby gems
 if [ -x "$HOME/.rvm/scripts/rvm" ]; then source ~/.rvm/scripts/rvm; fi
