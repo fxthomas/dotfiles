@@ -32,6 +32,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'w0rp/ale'
 
 " Language-specific
+Plugin 'posva/vim-vue'
 Plugin 'klen/python-mode'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'tpope/vim-markdown'
