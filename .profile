@@ -38,8 +38,9 @@ export GOPATH="$HOME/.local"
 # Setup local NPM packages
 export PATH="$HOME/.npm/bin:$PATH"
 
-# Add aliases
+# Add aliases and local profile
 if [ -f $HOME/.aliases ]; then source $HOME/.aliases; fi
+if [ -f $HOME/.profile_local ]; then source $HOME/.profile_local; fi
 
 # Hack to make Digikam icons work properly
 # See: https://wiki.archlinux.org/index.php/Digikam
