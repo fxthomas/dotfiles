@@ -75,6 +75,12 @@ alias strace="strace -frttTyy"
 # CSV to Excel conversion
 alias csv2xls="soffice --convert-to xls"
 
+# Convert a binary file to a PGM image
+function bin2pgm() {
+  echo "P5 512 4096 255"
+  cat "$1"
+}
+
 # Count number of files in directory
 function dn() {
 for f; do
