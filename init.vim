@@ -222,19 +222,29 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:indent_guides_auto_colors = 1
 autocmd VimEnter * silent exe ":IndentGuidesEnable"
 
-" Netrw
+" Netrw: Default configuration settings
 let g:netrw_banner = 0         " No banner
 let g:netrw_liststyle = 3      " Tree netrw style
 let g:netrw_winsize = 20       " Smaller window size
 let g:netrw_altv = 1           " Split on right by default
 let g:netrw_browse_split = 0   " Reuse the same window when opening
 
-" NERDCommenter
+" Netrw: Automatically open a left-explore window if launched with no arguments
+"
+" Interestingly, Lexplore will by default work much better than Vexplore for
+" IDE-style file explorer, because the window won't resize the way standard
+" Vim windows do (like Vexplore and Sexplore).
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * if argc() == 0 | Lexplore | endif
+augroup END
+
+" NERDCommenter: Use PEP8-compliant Python comments (space between # and text)
 let g:NERDCustomDelimiters= {
       \ 'python': {'left': '# '}
 \ }
 
-" Ctrl-P
+" CtrlP: Allow regular expressions, and use Git to take .gitignore into account
 let g:ctrlp_regexp = 1
 let g:ctrlp_clear_cache_on_exit = 0
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
