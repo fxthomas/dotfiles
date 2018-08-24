@@ -46,6 +46,7 @@ Plug 'tpope/vim-rails'
 Plug 'tfnico/vim-gradle'
 Plug 'honza/dockerfile.vim'
 Plug 'mattn/emmet-vim'
+Plug 'PProvost/vim-ps1'
 " Plug 'vim-scripts/AnsiEsc.vim.git'
 
 call plug#end()
@@ -71,6 +72,12 @@ set showcmd                       " show number of lines selected in visual
 set wildmenu                      " Expanded menu for command-line completion
 set cursorline                    " Show the cursorline
 set guicursor=                    " Disable GUI cursor (not supported in Guake)
+
+" Powershell is our shell (but keep diff running)
+" if has('win32')
+"   set shell=powershell
+"   set diffexpr="diff.exe -a v:fname_in v:fname_new > v:fname_out"
+" end
 
 " File encodings
 set encoding=utf-8
