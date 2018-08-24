@@ -10,6 +10,7 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 Plug 'VundleVim/Vundle.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'editorconfig/editorconfig-vim'
 
 " Themes
 Plug 'morhetz/gruvbox'
