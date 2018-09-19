@@ -261,6 +261,9 @@ let g:ctrlp_regexp = 1
 let g:ctrlp_clear_cache_on_exit = 0
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 
+" Change Python paths
+let g:python_host_prog = 'C:\Python27\python.exe'
+
 """""""""""""""""""""
 " Keyboard bindings "
 """""""""""""""""""""
