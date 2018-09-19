@@ -143,6 +143,18 @@ map z9 :set foldlevel=9<CR>
 map ze :set foldenable foldmethod=indent foldlevelstart=0 foldlevel=0<CR>
 map zd :set nofoldenable foldmethod=manual foldlevelstart=99<CR>
 
+" Use Ctrl-Wheel to change font size
+let s:fontsize = 11
+function! AdjustFontSize(amount)
+  let s:fontsize = s:fontsize+a:amount
+  :execute "GuiFont! Consolas:h" . s:fontsize
+endfunction
+
+noremap <C-ScrollWheelUp> :call AdjustFontSize(1)<CR>
+noremap <C-ScrollWheelDown> :call AdjustFontSize(-1)<CR>
+inoremap <C-ScrollWheelUp> <Esc>:call AdjustFontSize(1)<CR>a
+inoremap <C-ScrollWheelDown> <Esc>:call AdjustFontSize(-1)<CR>a
+
 " Ctrl-A increments on a whole line
 vmap <C-a> :s/\d\+/\=(submatch(0)+1)/g<CR>gv
 
