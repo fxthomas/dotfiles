@@ -65,6 +65,7 @@ function ipython2() { py -2 -mIPython $args }
 function ipython3() { py -3 -mIPython $args }
 function ipython2_64() { py -2.7-64 -mIPython $args }
 function ipython3_64() { py -3.6-64 -mIPython $args }
+function lrt() { Get-ChildItem $args | Sort-Object LastWriteTime }
 
 # Use Ctrl-D to exit Powershell
 Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
