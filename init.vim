@@ -246,10 +246,10 @@ let g:netrw_browse_split = 0   " Reuse the same window when opening
 " Interestingly, Lexplore will by default work much better than Vexplore for
 " IDE-style file explorer, because the window won't resize the way standard
 " Vim windows do (like Vexplore and Sexplore).
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * if argc() == 0 | Lexplore | endif
-augroup END
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * if argc() == 0 | Lexplore | endif
+" augroup END
 
 " NERDCommenter: Use PEP8-compliant Python comments (space between # and text)
 let g:NERDCustomDelimiters= {
