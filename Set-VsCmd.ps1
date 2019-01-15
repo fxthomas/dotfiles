@@ -14,7 +14,7 @@ function Set-VsCmd
 {
     param(
         [parameter(Mandatory=$true, HelpMessage="Enter VS version as 2010, 2012, 2013, 2015, 2017")]
-        [ValidateSet(2010,2012,2013,2015,2017)]
+        [ValidateSet(2008,2010,2012,2013,2015,2017)]
         [int]$version,
         [parameter(Mandatory=$true, HelpMessage="Enter architecture as x86, x64")]
         [ValidateSet("x86","x64")]
@@ -25,7 +25,7 @@ function Set-VsCmd
     )
 
     if ($version -lt 2017) {
-      $VS_VERSION = @{ 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
+      $VS_VERSION = @{ 2008 = "9.0"; 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
       $targetDir = "c:\Program Files (x86)\Microsoft Visual Studio $($VS_VERSION[$version])\VC"
       $vcvars = "vcvarsall.bat"
     } else {
