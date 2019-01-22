@@ -67,9 +67,9 @@ function ipython2_64() { py -2.7-64 -mIPython $args }
 function ipython3_64() { py -3.6-64 -mIPython $args }
 function lrt() { Get-ChildItem $args | Sort-Object LastWriteTime }
 
-# Write UTF-8 by default
-$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 # Use Ctrl-D to exit Powershell
 Set-PSReadlineKeyHandler -Key Ctrl+d -Function DeleteCharOrExit
+# Use Ctrl-W to delete the last word
+Set-PSReadlineKeyHandler -Key Ctrl+w -Function BackwardKillWord
 # Make Tab completion show a menu
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
