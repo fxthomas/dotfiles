@@ -89,5 +89,14 @@ for f; do
 done
 }
 
+# SHA265 fingerprint of a TLS host, Base64-encoded
+function tls_remote_sha256_b64() {
+  openssl s_client -connect "$1" < /dev/null 2>/dev/null |\
+    openssl x509 -noout -in /dev/stdin -pubkey |\
+    openssl pkey -pubin -outform der |\
+    openssl dgst -sha256 -binary |\
+    openssl enc -base64
+}
+
 # Reload Gnome-Shell extensions
 alias reloadext="gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Extensions.ReloadExtension"
