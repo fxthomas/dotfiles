@@ -230,6 +230,13 @@ let g:pymode_folding = 0
 " YCM
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
+" Python
+let g:python3_host_prog="C:\\Program Files\\Python37\\Python.exe"
+let g:python2_host_prog="C:\\Python27_64\\Python.exe"
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+
 " Indent Guides
 let g:indent_guides_auto_colors = 1
 autocmd VimEnter * silent exe ":IndentGuidesEnable"
