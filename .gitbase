@@ -13,21 +13,39 @@
 [core]
   excludesfile = ~/.gitignore_global
 [alias]
+  co = checkout
+  st = status
   b = branch -v
   br = branch -rv
   bd = branch -d
   bdd = branch -D
-  st = status
   ci = commit
   cia = commit --amend
-  co = checkout
   rb = rebase
+  rbw = rebase -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol
   cp = cherry-pick
+  cpw = cherry-pick -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol
+  s = show
+  sw = show --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  m = merge
+  mw = merge -s recursive -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol
+  mlog = log --oneline --left-right HEAD...MERGE_HEAD
+  d = diff
+  dw = diff --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  ds = diff --staged
+  dsw = diff --staged --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  dmin = diff --diff-algorithm=minimal --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  dsmin = diff --staged --diff-algorithm=minimal --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  dfull = diff --word-diff-regex=.
+  dsfull = diff --staged --word-diff-regex=.
   ski = stash --keep-index
   rha = reset --hard
-  sup = submodule update
+  nuke = "!git clean -fdx; git submodule foreach --recursive git clean -fdx"
+  soup = submodule update
+  soupir = submodule update --init --recursive
   spop = stash pop
   puree = pull --rebase
+  puf = push --force
   pu = "!f() { git push -u ${1:-origin} `git symbolic-ref --short HEAD`; }; f"
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
@@ -36,9 +54,7 @@
   slg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
   l = log --pretty=oneline --abbrev-commit
   up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
-  d = diff
-  ds = diff --staged
-  puf = push --force
+  addnw=!sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
 [push]
   default = simple
 [rerere]
