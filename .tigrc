@@ -1,0 +1,2 @@
+set line-graphics = ascii
+set commit-order = topo
