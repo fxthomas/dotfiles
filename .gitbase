@@ -22,7 +22,7 @@
   cp = cherry-pick
   ski = stash --keep-index
   rha = reset --hard
-  last = diff @{1}
+  changes = diff @{1}
   sup = submodule update
   soupir = submodule update --init --recursive
   spop = stash pop
