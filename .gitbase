@@ -10,34 +10,67 @@
 [core]
   excludesfile = ~/.gitignore_global
 [alias]
-  b = branch
+  st = status
+  co = checkout
+  rha = reset --hard
+  spop = stash pop
+
+  soup = submodule update
+  soupir = submodule update --init --recursive
+
+  puree = pull --rebase
+  puf = push --force
+
+  # Stash only unstaged files
+  ski = "!git commit -mprestash; git stash \"$@\"; git reset --soft HEAD@{1}"
+
+  # Recursively clean a repository
+  nuke = "!git clean -fdx; git submodule foreach --recursive git clean -fdx"
+
+  # Push and track a new branch on a remote (origin by default)
+  pu = "!f() { git push -u ${1:-origin} `git symbolic-ref --short HEAD`; }; f"
+
+  # Add new files, but ignore whitespace changes
+  addnw = !sh -c 'git diff -U0 -w --no-color "$@" | git apply --cached --ignore-whitespace --unidiff-zero -'
+
+  b = branch -v
+  br = branch -rv
   bd = branch -d
   bdd = branch -D
-  brv = branch -rv
-  st = status
   ci = commit
   cia = commit --amend
-  co = checkout
+
   rb = rebase
+  rbw = rebase -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol
+
   cp = cherry-pick
-  ski = stash --keep-index
-  rha = reset --hard
-  changes = diff @{1}
-  sup = submodule update
-  soupir = submodule update --init --recursive
-  spop = stash pop
-  puree = pull --rebase
-  pu = "!f() { git push -u ${1:-origin} `git symbolic-ref --short HEAD`; }; f"
+  cpw = cherry-pick -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol
+
+  s = show
+  sw = show --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  sfull = show --word-diff-regex=.
+
+  m = merge
+  mw = merge -s recursive -Xignore-space-change -Xignore-space-at-eol -Xignore-cr-at-eol
+  mlog = log --oneline --left-right HEAD...MERGE_HEAD
+
+  d = diff
+  dw = diff --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  ds = diff --staged
+  dsw = diff --staged --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  dmin = diff --diff-algorithm=minimal --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  dsmin = diff --staged --diff-algorithm=minimal --ignore-space-change --ignore-space-at-eol --ignore-cr-at-eol
+  dfull = diff --word-diff-regex=.
+  dsfull = diff --staged --word-diff-regex=.
+
   assume = update-index --assume-unchanged
   unassume = update-index --no-assume-unchanged
   assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   slg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --stat
   l = log --pretty=oneline --abbrev-commit
   up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}..'
-  d = diff
-  ds = diff --staged
-  puf = push --force
 [push]
   default = simple
 [merge]
