@@ -27,7 +27,7 @@ Plugin 'b4winckler/vim-angry'
 Plugin 'dietsche/vim-lastplace'
 
 " Code completion and linting
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'ycm-core/YouCompleteMe'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'w0rp/ale'
 
