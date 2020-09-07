@@ -71,13 +71,17 @@ function Set-VsCmd
         [ValidateSet(2008,2010,2012,2013,2015,2017)]
         [int]$version,
         [parameter(Mandatory=$true, HelpMessage="Enter architecture as x86, x64")]
-        [ValidateSet("x86","x64")]
+        [ValidateSet("x86", "x64")]
         [string]$arch,
+        # See folders located at: C:\Program Files (x86)\Windows Kits\10\bin
         [parameter(Mandatory=$true, HelpMessage="Enter Windows SDK version as 8.1 or 10")]
-        [ValidateSet("8.1")]
-        [string]$winsdkver
+        [ValidateSet("8.0", "8.1", "10.0.10150.0", "10.0.10240.0", "10.0.16299.0", "10.0.17134.0", "10.0.18362.0", "10.0.19041.0")]
+        [string]$winsdkver,
+        [parameter(Mandatory=$false, HelpMessage="Display environment variables being set")]
+        [switch]$showvariables
     )
 
+    # See: https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=vs-2019
     if ($version -lt 2017) {
       $VS_VERSION = @{ 2008 = "9.0"; 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
       $targetDir = "c:\Program Files (x86)\Microsoft Visual Studio $($VS_VERSION[$version])\VC"
@@ -95,6 +99,9 @@ function Set-VsCmd
     cmd /c "$vcvars $arch $winsdkver & set" |
     foreach {
       if ($_ -match "(.*?)=(.*)") {
+        if ($showvariables) {
+          Write-Host "Environment variable '$($matches[1])' set to '$($matches[2])'"
+        }
         Set-Item -force -path "ENV:\$($matches[1])" -value "$($matches[2])"
       }
     }
