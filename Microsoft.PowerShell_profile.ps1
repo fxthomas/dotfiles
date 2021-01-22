@@ -53,22 +53,11 @@ function Set-PyVsCmd
     write-host "`nVisual Studio for Python $version ($arch) Command Prompt variables set." -ForegroundColor Yellow
 }
 
-# This function configures the current PowerShell console for using Visual
-# Studio command-line tools ("Developper Command Prompt").
-#
-# Example:
-#
-#   Set-VsCmd 2015 x64 8.1  # Use VS 2015 64-bit tools with the 8.1 SDK
-#   Set-VsCmd 2015 x86 8.1  # Use VS 2015 32-bit tools with the 8.1 SDK
-#
-# See: http://putridparrot.com/blog/setup-powershell-to-use-the-visual-studio-paths-etc/
-# See: https://stackoverflow.com/questions/2124753/how-can-i-use-powershell-with-the-visual-studio-command-prompt
-# See: https://msdn.microsoft.com/en-us/library/f2ccy3wt.aspx
 function Set-VsCmd
 {
     param(
-        [parameter(Mandatory=$true, HelpMessage="Enter VS version as 2008, 2010, 2012, 2013, 2015, 2017")]
-        [ValidateSet(2008,2010,2012,2013,2015,2017)]
+        [parameter(Mandatory=$true, HelpMessage="Enter VS version as 2008, 2010, 2012, 2013, 2015, 2017, 2019")]
+        [ValidateSet(2008,2010,2012,2013,2015,2017,2019)]
         [int]$version,
         [parameter(Mandatory=$true, HelpMessage="Enter architecture as x86, x64")]
         [ValidateSet("x86", "x64")]
@@ -86,9 +75,13 @@ function Set-VsCmd
       $VS_VERSION = @{ 2008 = "9.0"; 2010 = "10.0"; 2012 = "11.0"; 2013 = "12.0"; 2015 = "14.0"; 2017 = "15.0" }
       $targetDir = "c:\Program Files (x86)\Microsoft Visual Studio $($VS_VERSION[$version])\VC"
       $vcvars = "vcvarsall.bat"
-    } else {
+    } elseif ($version -lt 2019) {
       $targetDir = "C:\Program Files (x86)\Microsoft Visual Studio\$version\BuildTools\VC\Auxiliary\Build"
       $vcvars = "vcvarsall.bat"
+    } else {
+      # https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/compiler-options/how-to-set-environment-variables-for-the-visual-studio-command-line
+      $targetDir = "C:\Program Files (x86)\Microsoft Visual Studio\$version\Professional\Common7\Tools"
+      $vcvars = "VsDevCmd.bat"
     }
 
     if (!(Test-Path (Join-Path $targetDir $vcvars))) {
