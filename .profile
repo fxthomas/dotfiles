@@ -55,3 +55,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Added by travis gem
 [ -f /home/fx/.travis/travis.sh ] && source /home/fx/.travis/travis.sh
+
+# Override this in Gnome Xorg so that vaapi works
+export LIBVA_DRIVER_NAME=iHD
