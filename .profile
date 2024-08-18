@@ -12,12 +12,17 @@ if [ -d "$HOME/bin" ]; then PATH="$HOME/bin:$PATH"; fi
 if [ -d "$HOME/Scripts" ]; then PATH="$HOME/Scripts:$PATH"; fi
 
 # Add Android tools to the PATH
-export ANDROID_PREFIX="$HOME/.local/opt"
-export ANDROID_HOME="$ANDROID_PREFIX/android-sdk/"
-export PATH="$ANDROID_HOME/tools:$PATH"
-export PATH="$ANDROID_HOME/build-tools/17.0.0:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$ANDROID_PREFIX/android-studio/bin/:$PATH"
+if [ -d "/opt/android-sdk" ]; then export ANDROID_PREFIX="/opt"
+elif [ -d "$HOME/.local/opt/android-sdk" ]; then export ANDROID_PREFIX="$HOME/.local/opt"; fi
+if [ -n "$ANDROID_PREFIX" ];
+then
+  export ANDROID_HOME="$ANDROID_PREFIX/android-sdk/"
+  export PATH="$ANDROID_HOME/tools:$PATH"
+  export PATH="$ANDROID_HOME/tools/bin:$PATH"
+  export PATH="$ANDROID_HOME/build-tools/17.0.0:$PATH"
+  export PATH="$ANDROID_HOME/platform-tools:$PATH"
+  export PATH="$ANDROID_PREFIX/android-studio/bin/:$PATH"
+fi
 
 # Setup local Python packages
 mkdir -p "$HOME/.local/lib"
