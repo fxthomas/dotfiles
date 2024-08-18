@@ -39,6 +39,9 @@ alias coffee='rlwrap coffee'
 # Run pacman with color output
 alias pacman='pacman --color auto'
 
+# Run ip with color output
+alias ip='ip --color'
+
 # Run tmux in 256-color mode
 alias tmux='tmux -2'
 
