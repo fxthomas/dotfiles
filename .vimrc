@@ -2,6 +2,7 @@
 " Package management "
 """"""""""""""""""""""
 
+so /etc/xdg/nvim/sysinit.vim
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim/
@@ -9,31 +10,32 @@ call vundle#begin()
 
 " General
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'nathanaelkane/vim-indent-guides'
+
+" Available in Arch repository
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-fugitive'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'majutsushi/tagbar'
 
 " Themes
 Plugin 'morhetz/gruvbox'
 
 " Navigation
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'rking/ag.vim'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-abolish'
 Plugin 'b4winckler/vim-angry'
 Plugin 'dietsche/vim-lastplace'
 
 " Code completion and linting
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'w0rp/ale'
 
 " Language-specific
 Plugin 'posva/vim-vue'
-Plugin 'python-mode/python-mode'
+" Plugin 'python-mode/python-mode'
 Plugin 'nelstrom/vim-markdown-folding'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
@@ -41,6 +43,15 @@ Plugin 'tfnico/vim-gradle'
 Plugin 'honza/dockerfile.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'vim-scripts/AnsiEsc.vim.git'
+Plugin 'rust-lang/rust.vim'
+
+if has('nvim')
+  " Neovim can use LSP to provide completion
+  Plugin 'neovim/nvim-lspconfig'
+else
+  " LSP support is not available in vanilla Vim
+  Plugin 'ycm-core/YouCompleteMe'
+endif
 
 call vundle#end()
 
@@ -168,11 +179,26 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-" Default completion function
-set ofu=syntaxcomplete#Complete
+" LSP setup for Neovim
+if has('nvim')
+let g:ale_disable_lsp = 1
+let g:ale_use_neovim_diagnostics_api = 1
+lua <<EOF
+  local on_attach = function(client, bufnr)
+    vim.api.nvim_buf_set_keymap(0, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {noremap = true})
+    vim.api.nvim_buf_set_keymap(0, 'n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>', {noremap = true})
+    vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+    vim.api.nvim_buf_set_option(0, 'formatexpr', 'v:lua.vim.lsp.formatexpr()')
+  end
+  require('lspconfig').ccls.setup({on_attach=on_attach})
+  require('lspconfig').rust_analyzer.setup{}
+EOF
 
-" Disable completion for included files
-set complete-=i
+" Default completion function for vanilla Vim
+else
+  set omnifunc="syntaxcomplete#Complete"   " Set syntax-completion function
+  set complete-=i                          " Disable completion for included files
+endif
 
 """""""""""
 " Plugins "
