@@ -28,6 +28,7 @@ fi
 mkdir -p "$HOME/.local/lib"
 mkdir -p "$HOME/.local/bin"
 export PYTHONUSERBASE="$HOME/.local"
+export PYTHONBREAKPOINT="ipdb.set_trace"
 export PATH="$HOME/.local/bin:$PATH"
 
 # Setup local Python startup script
