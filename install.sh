@@ -67,10 +67,10 @@ linkconf .profile ~
 linkconf .psqlrc ~
 linkconf .npmrc ~
 linkconf .multitailrc ~
+linkconf nvim ~/.config/nvim
 linkconf fx.zsh-theme ~/.oh-my-zsh/themes
 mkdir -p ~/.config/htop && linkconf htoprc ~/.config/htop
 mkdir -p ~/.config/mpv && linkconf mpv/mpv.conf ~/.config/mpv
-mkdir -p ~/.config/nvim && linkconf .vimrc ~/.config/nvim init.vim
 mkdir -p ~/.config && linkconf flake8 ~/.config
 
 # Install Vim bundles
