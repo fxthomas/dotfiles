@@ -1,7 +1,3 @@
-
-" Load Archlinux packages
-" so /etc/xdg/nvim/sysinit.vim
-
 " Some default options
 set nocompatible                  " Improved mode (always the case for nvim)
 set autoread                      " Auto reload modified files (:help autoread)
