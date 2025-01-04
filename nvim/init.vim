@@ -16,6 +16,51 @@ set laststatus=2                  " Always display status line
 set exrc                          " Allow project-specific settings
 set secure                        " Only allow secure options in project-specific settings
 
+" Try to use colorscheme
+try
+  colorscheme catppuccin-mocha
+  let g:airline_theme='catppuccin'
+catch /^Vim\%((\a\+)\)\=:E185/
+  try
+    colorscheme seti
+  catch /^Vim\%((\a\+)\)\=:E185/
+    try
+      colorscheme gruvbox
+    catch /^Vim\%((\a\+)\)\=:E185/
+      " leave default
+    endtry
+  endtry
+endtry
+
+" Completion
+" Show completions using a menu, even if there is one match, and extra info in
+" a popup. Don't select or insert anything by default and let the user select.
+set completeopt=menu,menuone,popup,noselect,noinsert
+
+autocmd! InsertCharPre * silent! noautocmd call <SID>autoComplete()
+
+function! s:autoComplete(waittime=500) abort
+    if exists('b:timerAutoComplete')
+        call timer_stop(b:timerAutoComplete)
+    endif
+    let l:line = line('.')
+    let l:col = col('.')
+    let b:timerAutoComplete = timer_start(a:waittime,{->s:autoCompletePost(l:line,l:col)})
+endfunction
+
+function! s:autoCompletePost(line, col) abort
+    if a:line == line('.') && a:col+1 == col('.') && mode()=='i'
+        if len(&omnifunc) != 0
+          " omni/ALE completion
+          silent noautocmd call feedkeys("\<C-X>\<C-O>","n")
+          ALEHover
+        else
+          " simple keyword completion
+          silent noautocmd call feedkeys("\<C-p>","n")
+        endif
+    endif
+endfunction
+
 " Search behavior
 set hlsearch                      " Highlight matches during search
 set incsearch                     " Update search results as the search pattern is typed
