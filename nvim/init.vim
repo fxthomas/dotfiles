@@ -15,6 +15,7 @@ set cursorline                    " Show the cursorline
 set laststatus=2                  " Always display status line
 set exrc                          " Allow project-specific settings
 set secure                        " Only allow secure options in project-specific settings
+set winborder=rounded             " Rounded borders for floating windows
 
 " Try to use colorscheme
 try
@@ -36,30 +37,7 @@ endtry
 " Show completions using a menu, even if there is one match, and extra info in
 " a popup. Don't select or insert anything by default and let the user select.
 set completeopt=menu,menuone,popup,noselect,noinsert
-
-autocmd! InsertCharPre * silent! noautocmd call <SID>autoComplete()
-
-function! s:autoComplete(waittime=500) abort
-    if exists('b:timerAutoComplete')
-        call timer_stop(b:timerAutoComplete)
-    endif
-    let l:line = line('.')
-    let l:col = col('.')
-    let b:timerAutoComplete = timer_start(a:waittime,{->s:autoCompletePost(l:line,l:col)})
-endfunction
-
-function! s:autoCompletePost(line, col) abort
-    if a:line == line('.') && a:col+1 == col('.') && mode()=='i'
-        if len(&omnifunc) != 0
-          " omni/ALE completion
-          silent noautocmd call feedkeys("\<C-X>\<C-O>","n")
-          ALEHover
-        else
-          " simple keyword completion
-          silent noautocmd call feedkeys("\<C-p>","n")
-        endif
-    endif
-endfunction
+lua require("lsp")
 
 " Search behavior
 set hlsearch                      " Highlight matches during search
@@ -131,7 +109,6 @@ syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
-lua require('initlsp')
 
 " Backup in ~/.vim/backup
 if filewritable(expand("~/.vim/backup")) == 2
